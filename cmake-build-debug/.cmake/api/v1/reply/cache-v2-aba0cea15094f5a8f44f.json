@@ -1334,6 +1334,18 @@
 			"value" : "[mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2.dll.a][C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2][v()]"
 		},
 		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SDL2_image",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding SDL2_image"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[mingw32;-mwindows;C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/lib/libSDL2_image.dll.a][C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include][v()]"
+		},
+		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Threads",
 			"properties" : 
 			[
@@ -1370,6 +1382,102 @@
 			"value" : "C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a"
 		},
 		{
+			"name" : "SDL2_IMAGEMAIN_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "SDL2_IMAGEMAIN_LIBRARY-NOTFOUND"
+		},
+		{
+			"name" : "SDL2_IMAGE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for SDL2_IMAGE."
+				}
+			],
+			"type" : "PATH",
+			"value" : "SDL2_IMAGE_DIR-NOTFOUND"
+		},
+		{
+			"name" : "SDL2_IMAGE_IMAGEMAIN_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "SDL2_IMAGE_IMAGEMAIN_LIBRARY-NOTFOUND"
+		},
+		{
+			"name" : "SDL2_IMAGE_IMAGE_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "SDL2_IMAGE_IMAGE_INCLUDE_DIR-NOTFOUND"
+		},
+		{
+			"name" : "SDL2_IMAGE_IMAGE_LIBRARY_TEMP",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "SDL2_IMAGE_IMAGE_LIBRARY_TEMP-NOTFOUND"
+		},
+		{
+			"name" : "SDL2_IMAGE_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "SDL2_IMAGE_INCLUDE_DIR-NOTFOUND"
+		},
+		{
+			"name" : "SDL2_IMAGE_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2_IMAGE Library can be found"
+				}
+			],
+			"type" : "STRING",
+			"value" : "mingw32;-mwindows;C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/lib/libSDL2_image.dll.a"
+		},
+		{
+			"name" : "SDL2_IMAGE_LIBRARY_TEMP",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : ""
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "mingw32;-mwindows;mingw32;-mwindows;C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/lib/libSDL2_image.dll.a"
+		},
+		{
 			"name" : "SDL2_INCLUDE_DIR",
 			"properties" : 
 			[
@@ -1403,7 +1511,55 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2.dll.a"
+			"value" : "mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2.dll.a"
+		},
+		{
+			"name" : "SDL2_imageMAIN_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "SDL2_imageMAIN_LIBRARY-NOTFOUND"
+		},
+		{
+			"name" : "SDL2_image_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include"
+		},
+		{
+			"name" : "SDL2_image_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2_image Library can be found"
+				}
+			],
+			"type" : "STRING",
+			"value" : "mingw32;-mwindows;C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/lib/libSDL2_image.dll.a"
+		},
+		{
+			"name" : "SDL2_image_LIBRARY_TEMP",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : ""
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "mingw32;-mwindows;mingw32;-mwindows;mingw32;-mwindows;mingw32;-mwindows;mingw32;-mwindows;mingw32;-mwindows;mingw32;-mwindows;mingw32;-mwindows;mingw32;-mwindows;mingw32;-mwindows;C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/lib/libSDL2_image.dll.a"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

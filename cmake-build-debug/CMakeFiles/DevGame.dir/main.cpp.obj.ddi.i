@@ -96797,6 +96797,166 @@ extern void SDL_Quit(void);
 # 1 "C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2/close_code.h" 1
 # 230 "C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2/SDL.h" 2
 # 3 "C:/DevGame/main.cpp" 2
+# 1 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h" 1
+# 33 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+# 1 "C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2/SDL_version.h" 1
+# 34 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h" 2
+# 1 "C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2/begin_code.h" 1
+# 35 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h" 2
+
+
+
+extern "C" {
+# 90 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern const SDL_version * IMG_Linked_Version(void);
+
+
+
+
+typedef enum IMG_InitFlags
+{
+    IMG_INIT_JPG = 0x00000001,
+    IMG_INIT_PNG = 0x00000002,
+    IMG_INIT_TIF = 0x00000004,
+    IMG_INIT_WEBP = 0x00000008,
+    IMG_INIT_JXL = 0x00000010,
+    IMG_INIT_AVIF = 0x00000020
+} IMG_InitFlags;
+# 167 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_Init(int flags);
+# 192 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern void IMG_Quit(void);
+# 253 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadTyped_RW(SDL_RWops *src, int freesrc, const char *type);
+# 295 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_Load(const char *file);
+# 348 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_Load_RW(SDL_RWops *src, int freesrc);
+# 386 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Texture * IMG_LoadTexture(SDL_Renderer *renderer, const char *file);
+# 433 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Texture * IMG_LoadTexture_RW(SDL_Renderer *renderer, SDL_RWops *src, int freesrc);
+# 488 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Texture * IMG_LoadTextureTyped_RW(SDL_Renderer *renderer, SDL_RWops *src, int freesrc, const char *type);
+# 533 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isAVIF(SDL_RWops *src);
+# 576 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isICO(SDL_RWops *src);
+# 619 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isCUR(SDL_RWops *src);
+# 662 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isBMP(SDL_RWops *src);
+# 705 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isGIF(SDL_RWops *src);
+# 748 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isJPG(SDL_RWops *src);
+# 791 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isJXL(SDL_RWops *src);
+# 834 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isLBM(SDL_RWops *src);
+# 877 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isPCX(SDL_RWops *src);
+# 920 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isPNG(SDL_RWops *src);
+# 963 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isPNM(SDL_RWops *src);
+# 1006 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isSVG(SDL_RWops *src);
+# 1049 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isQOI(SDL_RWops *src);
+# 1092 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isTIF(SDL_RWops *src);
+# 1135 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isXCF(SDL_RWops *src);
+# 1178 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isXPM(SDL_RWops *src);
+# 1221 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isXV(SDL_RWops *src);
+# 1264 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_isWEBP(SDL_RWops *src);
+# 1298 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadAVIF_RW(SDL_RWops *src);
+# 1332 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadICO_RW(SDL_RWops *src);
+# 1366 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadCUR_RW(SDL_RWops *src);
+# 1400 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadBMP_RW(SDL_RWops *src);
+# 1434 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadGIF_RW(SDL_RWops *src);
+# 1468 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadJPG_RW(SDL_RWops *src);
+# 1502 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadJXL_RW(SDL_RWops *src);
+# 1536 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadLBM_RW(SDL_RWops *src);
+# 1570 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadPCX_RW(SDL_RWops *src);
+# 1604 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadPNG_RW(SDL_RWops *src);
+# 1638 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadPNM_RW(SDL_RWops *src);
+# 1672 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadSVG_RW(SDL_RWops *src);
+# 1706 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadQOI_RW(SDL_RWops *src);
+# 1740 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadTGA_RW(SDL_RWops *src);
+# 1774 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadTIF_RW(SDL_RWops *src);
+# 1808 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadXCF_RW(SDL_RWops *src);
+# 1842 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadXPM_RW(SDL_RWops *src);
+# 1876 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadXV_RW(SDL_RWops *src);
+# 1910 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadWEBP_RW(SDL_RWops *src);
+# 1931 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_LoadSizedSVG_RW(SDL_RWops *src, int width, int height);
+# 1950 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_ReadXPMFromArray(char **xpm);
+# 1969 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern SDL_Surface * IMG_ReadXPMFromArrayToRGB888(char **xpm);
+# 1986 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_SavePNG(SDL_Surface *surface, const char *file);
+# 2003 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_SavePNG_RW(SDL_Surface *surface, SDL_RWops *dst, int freedst);
+# 2022 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_SaveJPG(SDL_Surface *surface, const char *file, int quality);
+# 2039 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern int IMG_SaveJPG_RW(SDL_Surface *surface, SDL_RWops *dst, int freedst, int quality);
+
+
+
+
+
+
+typedef struct IMG_Animation
+{
+ int w, h;
+ int count;
+ SDL_Surface **frames;
+ int *delays;
+} IMG_Animation;
+# 2067 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern IMG_Animation * IMG_LoadAnimation(const char *file);
+# 2088 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern IMG_Animation * IMG_LoadAnimation_RW(SDL_RWops *src, int freesrc);
+# 2118 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern IMG_Animation * IMG_LoadAnimationTyped_RW(SDL_RWops *src, int freesrc, const char *type);
+# 2133 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern void IMG_FreeAnimation(IMG_Animation *anim);
+# 2153 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern IMG_Animation * IMG_LoadGIFAnimation_RW(SDL_RWops *src);
+# 2173 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+extern IMG_Animation * IMG_LoadWEBPAnimation_RW(SDL_RWops *src);
+# 2191 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h"
+}
+
+# 1 "C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2/close_code.h" 1
+# 2194 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h" 2
+# 4 "C:/DevGame/main.cpp" 2
 
 using namespace std;
 
@@ -96820,6 +96980,9 @@ SDL_Window* initSDL(int SCREEN_WIDTH, int SCREEN_HEIGHT, const char* WINDOW_TITL
 
     if (window == nullptr) logErrorAndExit("CreateWindow", SDL_GetError());
 
+    if (!IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG))
+        logErrorAndExit( "SDL_image error:", SDL_GetError());
+
     return window;
 }
 
@@ -96840,6 +97003,8 @@ SDL_Renderer* createRenderer(SDL_Window* window)
 
 void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
 {
+    IMG_Quit();
+
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
@@ -96856,40 +97021,82 @@ void waitUntilKeyPressed()
     }
 }
 
-void drawSomething(SDL_Window* window, SDL_Renderer* renderer) {
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderDrawPoint(renderer, SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-    SDL_RenderDrawLine(renderer, 100, 100, 200, 200);
-    SDL_Rect filled_rect;
-    filled_rect.x = SCREEN_WIDTH - 400;
-    filled_rect.y = SCREEN_HEIGHT - 150;
-    filled_rect.w = 320;
-    filled_rect.h = 100;
-    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    SDL_RenderFillRect(renderer, &filled_rect);
+void renderTexture(SDL_Texture *texture, int x, int y, SDL_Renderer* renderer)
+{
+    SDL_Rect dest;
+
+    dest.x = x;
+    dest.y = y;
+    SDL_QueryTexture(texture, 
+# 74 "C:/DevGame/main.cpp" 3 4
+                             __null
+# 74 "C:/DevGame/main.cpp"
+                                 , 
+# 74 "C:/DevGame/main.cpp" 3 4
+                                   __null
+# 74 "C:/DevGame/main.cpp"
+                                       , &dest.w, &dest.h);
+
+    SDL_RenderCopy(renderer, texture, 
+# 76 "C:/DevGame/main.cpp" 3 4
+                                     __null
+# 76 "C:/DevGame/main.cpp"
+                                         , &dest);
 }
 
-int WinMain(int argc, char* argv[])
+SDL_Texture *loadTexture(const char *filename, SDL_Renderer* renderer)
 {
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
+    SDL_Texture *texture = IMG_LoadTexture(renderer, filename);
+    if (texture == 
+# 84 "C:/DevGame/main.cpp" 3 4
+                  __null
+# 84 "C:/DevGame/main.cpp"
+                      )
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Load texture %s", SDL_GetError());
+
+    return texture;
+}
+
+int WinMain(int argc, char *argv[])
+{
     SDL_Window* window = initSDL(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
     SDL_Renderer* renderer = createRenderer(window);
 
+    SDL_Texture* background = loadTexture("bikiniBottom.jpg", renderer);
+    SDL_RenderCopy( renderer, background, 
+# 96 "C:/DevGame/main.cpp" 3 4
+                                         __null
+# 96 "C:/DevGame/main.cpp"
+                                             , 
+# 96 "C:/DevGame/main.cpp" 3 4
+                                               __null
+# 96 "C:/DevGame/main.cpp"
+                                                   );
 
-    SDL_RenderClear(renderer);
-
-
-    drawSomething(window, renderer);
-
-
-
-    SDL_RenderPresent(renderer);
-
-
-
-
+    SDL_RenderPresent( renderer );
     waitUntilKeyPressed();
+
+    SDL_Texture* spongeBob = loadTexture("Spongebob.png", renderer);
+    renderTexture(spongeBob, 200, 200, renderer);
+
+    SDL_RenderPresent( renderer );
+    waitUntilKeyPressed();
+
+    SDL_DestroyTexture( spongeBob );
+    spongeBob = 
+# 108 "C:/DevGame/main.cpp" 3 4
+               __null
+# 108 "C:/DevGame/main.cpp"
+                   ;
+    SDL_DestroyTexture( background );
+    background = 
+# 110 "C:/DevGame/main.cpp" 3 4
+                __null
+# 110 "C:/DevGame/main.cpp"
+                    ;
+
     quitSDL(window, renderer);
     return 0;
 }
