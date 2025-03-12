@@ -96957,58 +96957,136 @@ extern IMG_Animation * IMG_LoadWEBPAnimation_RW(SDL_RWops *src);
 # 1 "C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2/close_code.h" 1
 # 2194 "C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h" 2
 # 4 "C:/DevGame/main.cpp" 2
+# 1 "C:/DevGame/graphics.h" 1
 
-using namespace std;
+
+
+
+
+# 1 "C:/DevGame/defs.h" 1
+
+
 
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 const char* WINDOW_TITLE = "Hello World!";
+# 7 "C:/DevGame/graphics.h" 2
 
-void logErrorAndExit(const char* msg, const char* error)
-{
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "%s: %s", msg, error);
-    SDL_Quit();
-}
+struct Graphics {
+    SDL_Renderer *renderer;
+    SDL_Window *window;
 
-SDL_Window* initSDL(int SCREEN_WIDTH, int SCREEN_HEIGHT, const char* WINDOW_TITLE)
-{
-    if (SDL_Init(( 0x00000001u | 0x00000010u | 0x00000020u | 0x00004000u | 0x00000200u | 0x00001000u | 0x00002000u | 0x00008000u )) != 0)
-        logErrorAndExit("SDL_Init", SDL_GetError());
+    void logErrorAndExit(const char* msg, const char* error)
+    {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "%s: %s", msg, error);
+        SDL_Quit();
+    }
 
-    SDL_Window* window = SDL_CreateWindow(WINDOW_TITLE, (0x2FFF0000u|(0)), (0x2FFF0000u|(0)), SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    void init() {
+        if (SDL_Init(( 0x00000001u | 0x00000010u | 0x00000020u | 0x00004000u | 0x00000200u | 0x00001000u | 0x00002000u | 0x00008000u )) != 0)
+            logErrorAndExit("SDL_Init", SDL_GetError());
 
-
-    if (window == nullptr) logErrorAndExit("CreateWindow", SDL_GetError());
-
-    if (!IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG))
-        logErrorAndExit( "SDL_image error:", SDL_GetError());
-
-    return window;
-}
-
-SDL_Renderer* createRenderer(SDL_Window* window)
-{
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED |
-                                                            SDL_RENDERER_PRESENTVSYNC);
+        window = SDL_CreateWindow(WINDOW_TITLE, (0x2FFF0000u|(0)), (0x2FFF0000u|(0)), SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
 
+        if (window == nullptr) logErrorAndExit("CreateWindow", SDL_GetError());
 
-    if (renderer == nullptr) logErrorAndExit("CreateRenderer", SDL_GetError());
+        if (!IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG))
+            logErrorAndExit( "SDL_image error:", SDL_GetError());
 
-    SDL_SetHint("SDL_RENDER_SCALE_QUALITY", "linear");
-    SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED |
+                                                  SDL_RENDERER_PRESENTVSYNC);
 
-    return renderer;
-}
 
-void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
-{
-    IMG_Quit();
 
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-}
+        if (renderer == nullptr) logErrorAndExit("CreateRenderer", SDL_GetError());
+
+        SDL_SetHint("SDL_RENDER_SCALE_QUALITY", "linear");
+        SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+    }
+
+    void prepareScene(SDL_Texture * background)
+    {
+        SDL_RenderClear(renderer);
+        SDL_RenderCopy( renderer, background, 
+# 44 "C:/DevGame/graphics.h" 3 4
+                                             __null
+# 44 "C:/DevGame/graphics.h"
+                                                 , 
+# 44 "C:/DevGame/graphics.h" 3 4
+                                                   __null
+# 44 "C:/DevGame/graphics.h"
+                                                       );
+    }
+
+    void presentScene()
+    {
+        SDL_RenderPresent(renderer);
+    }
+
+    SDL_Texture *loadTexture(const char *filename)
+    {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
+
+        SDL_Texture *texture = IMG_LoadTexture(renderer, filename);
+        if (texture == 
+# 57 "C:/DevGame/graphics.h" 3 4
+                      __null
+# 57 "C:/DevGame/graphics.h"
+                          )
+            SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Load texture %s", SDL_GetError());
+
+        return texture;
+    }
+
+    void renderTexture(SDL_Texture *texture, int x, int y)
+    {
+        SDL_Rect dest;
+
+        dest.x = x;
+        dest.y = y;
+        SDL_QueryTexture(texture, 
+# 69 "C:/DevGame/graphics.h" 3 4
+                                 __null
+# 69 "C:/DevGame/graphics.h"
+                                     , 
+# 69 "C:/DevGame/graphics.h" 3 4
+                                       __null
+# 69 "C:/DevGame/graphics.h"
+                                           , &dest.w, &dest.h);
+
+        SDL_RenderCopy(renderer, texture, 
+# 71 "C:/DevGame/graphics.h" 3 4
+                                         __null
+# 71 "C:/DevGame/graphics.h"
+                                             , &dest);
+    }
+
+    void blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y)
+    {
+        SDL_Rect dest;
+
+        dest.x = x;
+        dest.y = y;
+        dest.w = src->w;
+        dest.h = src->h;
+
+        SDL_RenderCopy(renderer, texture, src, &dest);
+    }
+
+    void quit()
+    {
+        IMG_Quit();
+
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+    }
+};
+# 5 "C:/DevGame/main.cpp" 2
+
+
+using namespace std;
 
 void waitUntilKeyPressed()
 {
@@ -97020,83 +97098,37 @@ void waitUntilKeyPressed()
         SDL_Delay(100);
     }
 }
-
-void renderTexture(SDL_Texture *texture, int x, int y, SDL_Renderer* renderer)
-{
-    SDL_Rect dest;
-
-    dest.x = x;
-    dest.y = y;
-    SDL_QueryTexture(texture, 
-# 74 "C:/DevGame/main.cpp" 3 4
-                             __null
-# 74 "C:/DevGame/main.cpp"
-                                 , 
-# 74 "C:/DevGame/main.cpp" 3 4
-                                   __null
-# 74 "C:/DevGame/main.cpp"
-                                       , &dest.w, &dest.h);
-
-    SDL_RenderCopy(renderer, texture, 
-# 76 "C:/DevGame/main.cpp" 3 4
-                                     __null
-# 76 "C:/DevGame/main.cpp"
-                                         , &dest);
-}
-
-SDL_Texture *loadTexture(const char *filename, SDL_Renderer* renderer)
-{
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
-
-    SDL_Texture *texture = IMG_LoadTexture(renderer, filename);
-    if (texture == 
-# 84 "C:/DevGame/main.cpp" 3 4
-                  __null
-# 84 "C:/DevGame/main.cpp"
-                      )
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Load texture %s", SDL_GetError());
-
-    return texture;
-}
-
+# 46 "C:/DevGame/main.cpp"
 int WinMain(int argc, char *argv[])
 {
-    SDL_Window* window = initSDL(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
-    SDL_Renderer* renderer = createRenderer(window);
+    Graphics graphics;
+    graphics.init();
 
-    SDL_Texture* background = loadTexture("bikiniBottom.jpg", renderer);
-    SDL_RenderCopy( renderer, background, 
-# 96 "C:/DevGame/main.cpp" 3 4
-                                         __null
-# 96 "C:/DevGame/main.cpp"
-                                             , 
-# 96 "C:/DevGame/main.cpp" 3 4
-                                               __null
-# 96 "C:/DevGame/main.cpp"
-                                                   );
+    SDL_Texture* background = graphics.loadTexture("bikiniBottom.jpg");
+    graphics.prepareScene(background);
 
-    SDL_RenderPresent( renderer );
+    graphics.presentScene();
     waitUntilKeyPressed();
 
-    SDL_Texture* spongeBob = loadTexture("Spongebob.png", renderer);
-    renderTexture(spongeBob, 200, 200, renderer);
+    SDL_Texture* spongeBob = graphics.loadTexture("Spongebob.png");
+    graphics.renderTexture(spongeBob, 200, 200);
 
-    SDL_RenderPresent( renderer );
+    graphics.presentScene();
     waitUntilKeyPressed();
 
     SDL_DestroyTexture( spongeBob );
     spongeBob = 
-# 108 "C:/DevGame/main.cpp" 3 4
+# 64 "C:/DevGame/main.cpp" 3 4
                __null
-# 108 "C:/DevGame/main.cpp"
+# 64 "C:/DevGame/main.cpp"
                    ;
     SDL_DestroyTexture( background );
     background = 
-# 110 "C:/DevGame/main.cpp" 3 4
+# 66 "C:/DevGame/main.cpp" 3 4
                 __null
-# 110 "C:/DevGame/main.cpp"
+# 66 "C:/DevGame/main.cpp"
                     ;
 
-    quitSDL(window, renderer);
+    graphics.quit();
     return 0;
 }
