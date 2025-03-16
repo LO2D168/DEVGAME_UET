@@ -10,18 +10,28 @@
 using namespace std;
 
 //---------Info settings----------------------
-const int SCREEN_WIDTH = 400;
-const int SCREEN_HEIGHT = 600;
+int SCREEN_WIDTH;
+int SCREEN_HEIGHT;
+
 const int mod_vocal = 26000;
+const int scroll_speed = 1;
 const char* gameTitle = "AstroType";
 
 SDL_Window* window = NULL;
 SDL_Surface* screenSurface = NULL;
+SDL_Renderer* renderer = NULL;
+SDL_Texture* pointerBackground = NULL;
+
 //--------------------------------------------
 
-//----------Link img-------------------------
+//----------Link img--------------------------
 
-//------------------------------------------
+const char* background = "../image_source/background.png";
+const char* MainCharacter = "../image_source/Example_ships/1.png";
+
+
+
+//--------------------------------------------
 
 
 
@@ -33,7 +43,11 @@ bool checkWindows();
 //--------------------------------------------
 void close();
 
-
+void errorWarningAndExit(const char* str, const char* error)
+{
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "%s: %s", str, error);
+    close();
+}
 
 //-------------------------------------------
 bool checkInit()
@@ -43,16 +57,22 @@ bool checkInit()
     {
         return false;
     }
-    else return true;
-}
 
-bool checkWindows()
-{
-    //Initialize SDL
-    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
+    // Get screen size
+    SDL_DisplayMode dm;
+    if (SDL_GetCurrentDisplayMode(0, &dm) != 0)
+    {
+        cerr << "Can't get screen size" << SDL_GetError() << std::endl;
+        SDL_Quit();
         return false;
     }
+
+    SCREEN_WIDTH = dm.w;
+    SCREEN_HEIGHT = dm.h;
+
+    SCREEN_HEIGHT -= 80;
+    SCREEN_WIDTH /= 2.5;
+
     // Initialize SDL_ttf
     if (TTF_Init() != 0) {
         std::cerr << "SDL_ttf initialization failed: " << TTF_GetError() << std::endl;
@@ -77,11 +97,20 @@ bool checkWindows()
         return false;
     }
 
+
+    return true;
+}
+
+bool checkWindows()
+{
     window = SDL_CreateWindow( gameTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
     if( window == NULL )
     {
+        errorWarningAndExit("CreateWindow", SDL_GetError());
         return false;
     }
+
+    return true;
 }
 
 void close()

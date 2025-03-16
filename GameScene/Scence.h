@@ -1,6 +1,6 @@
-#ifndef _Scene__H
-#define _Scene__H
+#ifndef _Scence__H
+#define _Scence__H
 
 #include "Background.h"
 
-#endif // _Scene__H
+#endif // _Scence__H
