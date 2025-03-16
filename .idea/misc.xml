@@ -8,6 +8,8 @@
     <excludeRoots>
       <file path="$PROJECT_DIR$/SDL2-2.26.0" />
       <file path="$PROJECT_DIR$/SDL2_image-2.8.8" />
+      <file path="$PROJECT_DIR$/SDL2_mixer-2.8.1" />
+      <file path="$PROJECT_DIR$/SDL2_ttf-2.24.0" />
     </excludeRoots>
   </component>
 </project>

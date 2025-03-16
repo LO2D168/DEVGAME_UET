@@ -14,7 +14,9 @@
 	"include-dirs" : 
 	[
 		"C:\\DevGame\\SDL2-2.26.0\\x86_64-w64-mingw32\\include\\SDL2",
-		"C:\\DevGame\\SDL2_image-2.8.8\\x86_64-w64-mingw32\\include"
+		"C:\\DevGame\\SDL2_image-2.8.8\\x86_64-w64-mingw32\\include",
+		"C:\\DevGame\\SDL2_mixer-2.8.1\\x86_64-w64-mingw32\\include",
+		"C:\\DevGame\\SDL2_ttf-2.24.0\\x86_64-w64-mingw32\\include"
 	],
 	"language" : "CXX",
 	"linked-target-dirs" : [],
