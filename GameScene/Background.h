@@ -29,16 +29,12 @@ void scroll()
 
     SDL_RenderCopy(renderer, pointerBackground, NULL, &Part1);
     SDL_RenderCopy(renderer, pointerBackground, NULL, &Part2);
-
-    SDL_RenderPresent(renderer);
 }
 
 void createWindows()
 {
     renderer = createRenderer(window);
     pointerBackground = loadTexture(background, renderer);
-
-
 }
 
 void closeWindows()

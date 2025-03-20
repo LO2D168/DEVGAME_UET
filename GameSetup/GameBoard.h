@@ -3,6 +3,6 @@
 
 #include "GameSettings.h"
 #include "FuncSettings.h"
-
+#include "Objects.h"
 
 #endif // _GameBoard__H

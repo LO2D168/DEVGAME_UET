@@ -3,6 +3,10 @@
 #include "Objects\SetObj.h"
 using namespace std;
 
+void FixedUpdate();
+void ElapsedUpdate();
+void Render();
+
 int WinMain(int argc, char* args[])
 {
     if(!checkInit()) {
@@ -20,8 +24,12 @@ int WinMain(int argc, char* args[])
         setupScroll();
         while(true)
         {
-            if ( (SDL_PollEvent(&e) != 0) && (e.type == SDL_KEYDOWN || e.type == SDL_QUIT)) break;
-            scroll();
+            if ( (SDL_PollEvent(&e) != 0) && (e.type == SDL_QUIT)) break;
+
+            FixedUpdate();
+            ElapsedUpdate();
+            Render();
+
             SDL_Delay(16);
         }
         closeWindows();
@@ -29,4 +37,21 @@ int WinMain(int argc, char* args[])
     }
 
     return 0;
+}
+
+void FixedUpdate()
+{
+    MainFixedUpdate();
+}
+
+void ElapsedUpdate()
+{
+    MainElapsedUpdate();
+}
+
+void Render()
+{
+    scroll();
+    MainRender();
+    SDL_RenderPresent(renderer);
 }

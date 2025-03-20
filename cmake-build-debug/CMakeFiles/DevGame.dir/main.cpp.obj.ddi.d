@@ -526,7 +526,9 @@ CMakeFiles\DevGame.dir\main.cpp.obj.ddi: C:/DevGame/main.cpp \
  C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2/SDL_endian.h \
  C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2/SDL_version.h \
  C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h \
- C:/DevGame/GameSetup\FuncSettings.h C:/DevGame/GameScene\Scence.h \
+ C:/DevGame/GameSetup\FuncSettings.h C:/DevGame/GameSetup\Objects.h \
+ C:/DevGame/GameSetup\GameBoard.h C:/DevGame/GameScene\Scence.h \
  C:/DevGame/GameScene\Background.h C:/DevGame/GameSetup/GameBoard.h \
  C:/DevGame/GameScene/Scence.h C:/DevGame/Objects/SetObj.h \
+ C:/DevGame/Objects/MainObj/MainObj.h C:/DevGame/GameSetup/GameBoard.h \
  C:/DevGame/Objects\SetObj.h

@@ -17,17 +17,22 @@ const int mod_vocal = 26000;
 const int scroll_speed = 1;
 const char* gameTitle = "AstroType";
 
+const int mainSpeed = 10;
+const int mainHeightObj = 70;
+const int mainWidthObj = 50;
+
 SDL_Window* window = NULL;
 SDL_Surface* screenSurface = NULL;
 SDL_Renderer* renderer = NULL;
 SDL_Texture* pointerBackground = NULL;
 
-//--------------------------------------------
-
+//----------Global Array----------------------
+int arrX[] = {0, 0, 1, 1};
+int arrY[] = {0, 1, 0, 1};
 //----------Link img--------------------------
 
 const char* background = "../image_source/background.png";
-const char* MainCharacter = "../image_source/Example_ships/1.png";
+const char* MainCharacterIMG = "C:/DevGame/image_source/Example_ships/1.png";
 
 
 
