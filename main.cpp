@@ -21,9 +21,11 @@ int WinMain(int argc, char* args[])
 
         SDL_Event e;
         createWindows();
+        loadImg();
         setupScroll();
-        while(true)
+        while(mainObjCharc->getHealth())
         {
+            timeFrame++;
             if ( (SDL_PollEvent(&e) != 0) && (e.type == SDL_QUIT)) break;
 
             FixedUpdate();
@@ -34,6 +36,7 @@ int WinMain(int argc, char* args[])
         }
         closeWindows();
         close();
+        delete mainObjCharc;
     }
 
     return 0;
@@ -41,11 +44,13 @@ int WinMain(int argc, char* args[])
 
 void FixedUpdate()
 {
+    meteoFixedUpdate();
     MainFixedUpdate();
 }
 
 void ElapsedUpdate()
 {
+    meteoElapsedUpdate();
     MainElapsedUpdate();
 }
 
@@ -53,5 +58,6 @@ void Render()
 {
     scroll();
     MainRender();
+    meteoRender();
     SDL_RenderPresent(renderer);
 }

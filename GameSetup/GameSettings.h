@@ -12,23 +12,50 @@ using namespace std;
 //---------Info settings----------------------
 int SCREEN_WIDTH;
 int SCREEN_HEIGHT;
+int timeFrame = 0;
 
 const int mod_vocal = 26000;
 const int scroll_speed = 1;
 const char* gameTitle = "AstroType";
 
-const int mainSpeed = 10;
+//--------Main Val-------------
+const int mainSpeed = 5;
 const int mainHeightObj = 70;
 const int mainWidthObj = 50;
+const int penaltyValue = 50;
+//-----------------------------
+
+//----------Meteorite----------
+const int meteoSpeed = 5 ;
+const int meteoHeight = 40;
+const int meteoWidth = 30;
+const int numMeteoImg = 4;
+const int meteoEventSpeed = 30;
+const char* meteoArray[] = {"C:/DevGame/image_source/p1.png",
+                            "C:/DevGame/image_source/p2.png",
+                            "C:/DevGame/image_source/p3.png",
+                            "C:/DevGame/image_source/p4.png"};
+vector<SDL_Texture*> listPointerMeteo;
+//-----------------------------
+
+//-----------Heart------------
+const int heathWidthObj = 40;
+const int heathHeightObj = 40;
+const char* linkToHeartImg = "C:/DevGame/image_source/heart.png";
+SDL_Texture* pointerToHeartImg = NULL;
+//-----------------------------
+
+
+//---------SpaceShip-----------
+
+
+//-----------------------------
 
 SDL_Window* window = NULL;
 SDL_Surface* screenSurface = NULL;
 SDL_Renderer* renderer = NULL;
 SDL_Texture* pointerBackground = NULL;
 
-//----------Global Array----------------------
-int arrX[] = {0, 0, 1, 1};
-int arrY[] = {0, 1, 0, 1};
 //----------Link img--------------------------
 
 const char* background = "../image_source/background.png";

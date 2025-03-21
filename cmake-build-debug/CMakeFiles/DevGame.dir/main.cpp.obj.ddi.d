@@ -531,4 +531,6 @@ CMakeFiles\DevGame.dir\main.cpp.obj.ddi: C:/DevGame/main.cpp \
  C:/DevGame/GameScene\Background.h C:/DevGame/GameSetup/GameBoard.h \
  C:/DevGame/GameScene/Scence.h C:/DevGame/Objects/SetObj.h \
  C:/DevGame/Objects/MainObj/MainObj.h C:/DevGame/GameSetup/GameBoard.h \
- C:/DevGame/Objects\SetObj.h
+ C:/DevGame/Objects/SetObj.h C:/DevGame/Objects/Meteorite/Meteorite.h \
+ C:/DevGame/Objects/MainObj/heart.h C:\DevGame\GameSetup\GameBoard.h \
+ C:/DevGame/Objects/Meteorite/Meteorite.h C:/DevGame/Objects\SetObj.h
