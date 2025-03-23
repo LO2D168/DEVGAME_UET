@@ -1,9 +1,5 @@
-//
-// Created by Admin on 3/21/2025.
-//
-
-#ifndef DEVGAME_HEART_H
-#define DEVGAME_HEART_H
+#ifndef HEART_H
+#define HEART_H
 
 #include "C:\DevGame\GameSetup\GameBoard.h"
 
@@ -32,4 +28,4 @@ public:
     }
 };
 
-#endif //DEVGAME_HEART_H
+#endif //HEART_H

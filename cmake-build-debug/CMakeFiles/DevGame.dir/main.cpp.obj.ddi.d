@@ -533,4 +533,15 @@ CMakeFiles\DevGame.dir\main.cpp.obj.ddi: C:/DevGame/main.cpp \
  C:/DevGame/Objects/MainObj/MainObj.h C:/DevGame/GameSetup/GameBoard.h \
  C:/DevGame/Objects/SetObj.h C:/DevGame/Objects/Meteorite/Meteorite.h \
  C:/DevGame/Objects/MainObj/heart.h C:\DevGame\GameSetup\GameBoard.h \
- C:/DevGame/Objects/Meteorite/Meteorite.h C:/DevGame/Objects\SetObj.h
+ C:/DevGame/Objects/Meteorite/Meteorite.h \
+ C:/DevGame/Objects/SpaceShip/SpaceShip.h C:\DevGame\Objects\SetObj.h \
+ C:/DevGame/Objects/SpaceShip/SpaceShipType1.h \
+ C:/DevGame/Objects/SpaceShip/SpaceShip.h \
+ C:/DevGame/Objects/SpaceShip/SpaceShipType2.h \
+ C:/DevGame/Objects/SpaceShip/SpaceShipType3.h \
+ C:/DevGame/Objects/SpaceShip/SpaceShipType4.h \
+ C:/DevGame/Objects/SpaceShip/SpaceShipType5.h \
+ C:/DevGame/Objects/SpaceShip/SpaceShipType6.h \
+ C:/DevGame/Objects/SpaceShip/SpaceShipType7.h \
+ C:/DevGame/Objects/SpaceShip/SpaceShipType8.h \
+ C:/DevGame/Objects\SetObj.h

@@ -47,7 +47,18 @@ SDL_Texture* pointerToHeartImg = NULL;
 
 
 //---------SpaceShip-----------
-
+const int numTypeSpaceShip = 8;
+const char* linkToSpaceShip[] ={
+        "C:/DevGame/image_source/Example_ships/3B.png",
+        "C:/DevGame/image_source/Example_ships/4.png",
+        "C:/DevGame/image_source/Example_ships/5B.png",
+        "C:/DevGame/image_source/Example_ships/6B.png",
+        "C:/DevGame/image_source/Example_ships/8.png",
+        "C:/DevGame/image_source/Example_ships/9.png",
+        "C:/DevGame/image_source/Example_ships/10B.png",
+        "C:/DevGame/image_source/Example_ships/13B.png"
+};
+vector<SDL_Texture*> listImgSpaceShip;
 
 //-----------------------------
 

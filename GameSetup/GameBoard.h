@@ -14,5 +14,11 @@ void loadImg()
     }
 
     pointerToHeartImg = loadTexture(linkToHeartImg, renderer);
+
+    for(int i = 0; i < numTypeSpaceShip; i++)
+    {
+        SDL_Texture* pointerObj = loadTexture(linkToSpaceShip[i], renderer);
+        listImgSpaceShip.push_back(pointerObj);
+    }
 }
 #endif // _GameBoard__H

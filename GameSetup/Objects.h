@@ -54,7 +54,7 @@ public:
     void changInitObj(bool val) {initObj = val;}
     void changePointerObj(SDL_Texture* val) {pointerToImg = val;}
 
-    virtual bool checkCollisionObject(const Obj* that)
+    bool checkCollisionObject(const Obj* that)
     {
         SDL_Rect rectA = {posX, posY, widthObj, heightObj};
         SDL_Rect rectB = {that->posX, that->posY, that->widthObj, that->heightObj};
@@ -70,7 +70,7 @@ public:
         return false;
     }
 
-    virtual bool checkOutArea()
+    bool checkOutArea()
     {
         return (posX < 0 || posY < 0 || posX > SCREEN_WIDTH || posY > SCREEN_HEIGHT);
     }
