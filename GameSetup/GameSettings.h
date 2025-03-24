@@ -10,45 +10,45 @@
 using namespace std;
 
 //---------Info settings----------------------
-int SCREEN_WIDTH;
-int SCREEN_HEIGHT;
-int timeFrame = 0;
+inline int SCREEN_WIDTH;
+inline int SCREEN_HEIGHT;
+inline int timeFrame = 0;
 
-const int mod_vocal = 26000;
-const int scroll_speed = 1;
-const char* gameTitle = "AstroType";
+inline const int mod_vocal = 26000;
+inline const int scroll_speed = 1;
+inline const char* gameTitle = "AstroType";
 
 //--------Main Val-------------
-const int mainSpeed = 5;
-const int mainHeightObj = 70;
-const int mainWidthObj = 50;
-const int penaltyValue = 50;
+inline const int mainSpeed = 5;
+inline const int mainHeightObj = 70;
+inline const int mainWidthObj = 50;
+inline const int penaltyValue = 50;
 //-----------------------------
 
 //----------Meteorite----------
-const int meteoSpeed = 5 ;
-const int meteoHeight = 40;
-const int meteoWidth = 30;
-const int numMeteoImg = 4;
-const int meteoEventSpeed = 30;
-const char* meteoArray[] = {"C:/DevGame/image_source/p1.png",
+inline const int meteoSpeed = 5 ;
+inline const int meteoHeight = 40;
+inline const int meteoWidth = 30;
+inline const int numMeteoImg = 4;
+inline const int meteoEventSpeed = 30;
+inline const char* meteoArray[] = {"C:/DevGame/image_source/p1.png",
                             "C:/DevGame/image_source/p2.png",
                             "C:/DevGame/image_source/p3.png",
                             "C:/DevGame/image_source/p4.png"};
-vector<SDL_Texture*> listPointerMeteo;
+inline vector<SDL_Texture*> listPointerMeteo;
 //-----------------------------
 
 //-----------Heart------------
-const int heathWidthObj = 40;
-const int heathHeightObj = 40;
-const char* linkToHeartImg = "C:/DevGame/image_source/heart.png";
-SDL_Texture* pointerToHeartImg = NULL;
+inline const int heathWidthObj = 40;
+inline const int heathHeightObj = 40;
+inline const char* linkToHeartImg = "C:/DevGame/image_source/heart.png";
+inline SDL_Texture* pointerToHeartImg = NULL;
 //-----------------------------
 
 
 //---------SpaceShip-----------
-const int numTypeSpaceShip = 8;
-const char* linkToSpaceShip[] ={
+inline const int numTypeSpaceShip = 8;
+inline const char* linkToSpaceShip[] ={
         "C:/DevGame/image_source/Example_ships/3B.png",
         "C:/DevGame/image_source/Example_ships/4.png",
         "C:/DevGame/image_source/Example_ships/5B.png",
@@ -58,35 +58,39 @@ const char* linkToSpaceShip[] ={
         "C:/DevGame/image_source/Example_ships/10B.png",
         "C:/DevGame/image_source/Example_ships/13B.png"
 };
-vector<SDL_Texture*> listImgSpaceShip;
+inline vector<SDL_Texture*> listImgSpaceShip;
 
 //-----------------------------
 
-SDL_Window* window = NULL;
-SDL_Surface* screenSurface = NULL;
-SDL_Renderer* renderer = NULL;
-SDL_Texture* pointerBackground = NULL;
+inline SDL_Window* window = NULL;
+inline SDL_Surface* screenSurface = NULL;
+inline SDL_Renderer* renderer = NULL;
+inline SDL_Texture* pointerBackground = NULL;
 
 //----------Link img--------------------------
 
-const char* background = "../image_source/background.png";
-const char* MainCharacterIMG = "C:/DevGame/image_source/Example_ships/1.png";
-
-
-
+inline const char* background = "../image_source/background.png";
+inline const char* MainCharacterIMG = "C:/DevGame/image_source/Example_ships/1.png";
 //--------------------------------------------
 
-
+//----------------Font------------------------
+inline TTF_Font *fontBold = NULL;
+inline TTF_Font *fontRegular = NULL;
+inline TTF_Font *fontLight = NULL;
+inline TTF_Font *fontMedium = NULL;
+inline TTF_Font *fontSemiBold = NULL;
+inline TTF_Font *fontVariable = NULL;
+//--------------------------------------------
 
 //------- Start SDL and create windows -------
-bool checkInit();
+inline bool checkInit();
 //--------------------------------------------
-bool checkWindows();
+inline bool checkWindows();
 
 //--------------------------------------------
 void close();
 
-void errorWarningAndExit(const char* str, const char* error)
+inline void errorWarningAndExit(const char* str, const char* error)
 {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "%s: %s", str, error);
     close();
@@ -140,11 +144,21 @@ bool checkInit()
         return false;
     }
 
+    fontBold = TTF_OpenFont("../fonts/bold.ttf", 20);
+    fontRegular = TTF_OpenFont("../fonts/regular.ttf", 20);
+    fontLight = TTF_OpenFont("../fonts/light.ttf", 20);
+    fontMedium = TTF_OpenFont("../fonts/medium.ttf", 20);
+    fontSemiBold = TTF_OpenFont("../fonts/semibold.ttf", 20);
+    fontVariable = TTF_OpenFont("../fonts/variable.ttf", 20);
+
+    if (fontSemiBold == NULL || fontMedium == NULL || fontSemiBold == NULL || fontVariable == NULL || fontLight == NULL || fontVariable == NULL)
+        return false;
+
 
     return true;
 }
 
-bool checkWindows()
+inline bool checkWindows()
 {
     window = SDL_CreateWindow( gameTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
     if( window == NULL )
@@ -156,7 +170,7 @@ bool checkWindows()
     return true;
 }
 
-void close()
+inline void close()
 {
 
     //Destroy window

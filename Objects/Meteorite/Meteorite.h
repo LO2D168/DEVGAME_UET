@@ -2,7 +2,7 @@
 #define _Meteorite__H
 
 #include "C:/DevGame/GameSetup/GameBoard.h"
-int timeForNewEvent = meteoEventSpeed;
+inline int timeForNewEvent = meteoEventSpeed;
 
 class Meteo : public Obj
 {
@@ -24,17 +24,13 @@ public:
         posY += speed;
     }
 
+    virtual ~Meteo() {}
 };
 
-list<Meteo*> listMeteoEvent;
+inline list<Meteo*> listMeteoEvent;
 
-void meteoFixedUpdate()
+inline void meteoFixedUpdate()
 {
-    for(auto meteoObj: listMeteoEvent)
-    {
-        meteoObj->moveToY();
-    }
-
     while(!listMeteoEvent.empty())
     {
         if(listMeteoEvent.front()->getPosY() > SCREEN_HEIGHT)
@@ -50,8 +46,13 @@ void meteoFixedUpdate()
 
 }
 
-void meteoElapsedUpdate()
+inline void meteoElapsedUpdate()
 {
+    for(auto meteoObj: listMeteoEvent)
+    {
+        meteoObj->moveToY();
+    }
+
     if(timeFrame == timeForNewEvent)
     {
         timeForNewEvent += rand() % meteoEventSpeed + meteoEventSpeed / 2;
@@ -68,7 +69,7 @@ void meteoElapsedUpdate()
     }
 }
 
-void meteoRender()
+inline void meteoRender()
 {
     for(auto meteoObj: listMeteoEvent)
     {

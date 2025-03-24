@@ -544,4 +544,4 @@ CMakeFiles\DevGame.dir\main.cpp.obj.ddi: C:/DevGame/main.cpp \
  C:/DevGame/Objects/SpaceShip/SpaceShipType6.h \
  C:/DevGame/Objects/SpaceShip/SpaceShipType7.h \
  C:/DevGame/Objects/SpaceShip/SpaceShipType8.h \
- C:/DevGame/Objects\SetObj.h
+ C:/DevGame/Objects/Bullet/Bullet.h C:/DevGame/Objects\SetObj.h

@@ -32,9 +32,9 @@ public:
     int getHealth() {return health;}
 };
 
-MainCharacter* mainObjCharc = new MainCharacter(MainCharacterIMG, mainSpeed, mainWidthObj, mainHeightObj);
+inline MainCharacter* mainObjCharc = new MainCharacter(MainCharacterIMG, mainSpeed, mainWidthObj, mainHeightObj);
 
-void MainRender()
+inline void MainRender()
 {
     mainObjCharc->renderHeart(mainObjCharc->getHealth() - 1);
     // animation after collision
@@ -44,10 +44,8 @@ void MainRender()
     mainObjCharc->renderHeart(mainObjCharc->getHealth());
 }
 
-void MainFixedUpdate()
+inline void MainFixedUpdate()
 {
-    mainObjCharc->getDirection();
-
     if(mainObjCharc->penalty)
     {
         (mainObjCharc->penalty)--;
@@ -67,8 +65,9 @@ void MainFixedUpdate()
 
 }
 
-void MainElapsedUpdate()
+inline void MainElapsedUpdate()
 {
+    mainObjCharc->getDirection();
     if(mainObjCharc->getInitObj() == true)
     {
         mainObjCharc->changePosX(SCREEN_WIDTH / 2 - mainWidthObj / 2);

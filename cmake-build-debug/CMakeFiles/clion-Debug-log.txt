@@ -1,4 +1,27 @@
 "C:\Program Files\JetBrains\CLion 2024.3.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.3.3/bin/ninja/win/x64/ninja.exe" -DCMAKE_CXX_COMPILER=C:/mingw64/bin/g++.exe -G Ninja -S C:\DevGame -B C:\DevGame\cmake-build-debug
--- Configuring done (0.3s)
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/mingw64/bin/cc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/mingw64/bin/g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE
+-- Found SDL2: mingw32;-mwindows;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2main.a;C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/lib/libSDL2.dll.a;-lpthread
+-- Found SDL2_image: mingw32;-mwindows;C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/lib/libSDL2_image.dll.a;-lpthread
+-- Found SDL2_mixer: mingw32;-mwindows;C:/DevGame/SDL2_mixer-2.8.1/x86_64-w64-mingw32/lib/libSDL2_mixer.dll.a;-lpthread
+-- Found SDL2_ttf: mingw32;-mwindows;C:/DevGame/SDL2_ttf-2.24.0/x86_64-w64-mingw32/lib/libSDL2_ttf.dll.a;-lpthread
+-- Configuring done (2.8s)
 -- Generating done (0.1s)
 -- Build files have been written to: C:/DevGame/cmake-build-debug

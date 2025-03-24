@@ -5,6 +5,8 @@
 #include "FuncSettings.h"
 #include "Objects.h"
 
+inline int score = 0;
+
 void loadImg()
 {
     for(int i = 0; i < numMeteoImg; i++)

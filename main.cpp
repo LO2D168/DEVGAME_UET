@@ -1,6 +1,8 @@
 #include "GameSetup\GameBoard.h"
 #include "GameScene\Scence.h"
 #include "Objects\SetObj.h"
+#include "Data\DataGame.h"
+#include "Data\DataVocal.h"
 using namespace std;
 
 void FixedUpdate();
@@ -20,16 +22,21 @@ int WinMain(int argc, char* args[])
         }
 
         SDL_Event e;
+
         createWindows();
         loadImg();
+        loadData();
+        prepareData();
         setupScroll();
+        score = 0;
+
         while(mainObjCharc->getHealth())
         {
             timeFrame++;
             if ( (SDL_PollEvent(&e) != 0) && (e.type == SDL_QUIT)) break;
 
-            FixedUpdate();
             ElapsedUpdate();
+            FixedUpdate();
             Render();
 
             SDL_Delay(16);
@@ -38,18 +45,21 @@ int WinMain(int argc, char* args[])
         close();
         delete mainObjCharc;
     }
-
     return 0;
 }
 
 void FixedUpdate()
 {
+    spaceShipUpdate();
     meteoFixedUpdate();
+    bulletFixedUpdate();
     MainFixedUpdate();
 }
 
 void ElapsedUpdate()
 {
+    spaceShipElapsedUpdate();
+    bulletElapsedUpdate();
     meteoElapsedUpdate();
     MainElapsedUpdate();
 }
@@ -59,5 +69,7 @@ void Render()
     scroll();
     MainRender();
     meteoRender();
+    spaceShipRender();
+    bulletRender();
     SDL_RenderPresent(renderer);
 }

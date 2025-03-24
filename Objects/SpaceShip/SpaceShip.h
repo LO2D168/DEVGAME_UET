@@ -11,10 +11,10 @@ protected:
 public:
     SpaceShip(const char* c, const int Speed, const int wobj, const int hobj) : Obj(c, Speed, wobj, hobj) {}
 
-    void trackingMainObj(MainCharacter* obj)
+    void trackingMainObj()
     {
-        vx = obj->getPosX() - posX;
-        vy = obj->getPosY() - posY;
+        vx = mainObjCharc->getPosX() - posX;
+        vy = mainObjCharc->getPosY() - posY;
 
         double length = sqrt(vx*vx + vy*vy);
         vx /= length;
@@ -53,9 +53,11 @@ public:
         SDL_Rect rectObj = {posX, posY, widthObj, heightObj};
         SDL_RenderCopyEx(renderer, pointerToImg, NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
     }
+
+    virtual ~SpaceShip() = default;
 };
 
-#endif // _SpaceShip__H
+inline deque<SpaceShip*> listSpaceShipsObj;
 
 #include "SpaceShipType1.h"
 #include "SpaceShipType2.h"
@@ -65,3 +67,5 @@ public:
 #include "SpaceShipType6.h"
 #include "SpaceShipType7.h"
 #include "SpaceShipType8.h"
+
+#endif // _SpaceShip__H
