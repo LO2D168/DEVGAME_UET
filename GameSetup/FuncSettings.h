@@ -46,9 +46,22 @@ SDL_Texture *loadTexture(const char *filename, SDL_Renderer* render)
 }
 
 //---------------------------------
+int randW() {
+    int sum = 0;
+    for (int i = 1; i <= 7; i++) {
+        sum += (1 << i);
+    }
 
+    int num = rand() % sum + 1;
+
+    for (int i = 7; i >= 1; i--) {
+        if (num <= (1 << i)) { return 7 - i + 1; }
+        num -= (1 << i);
+    }
+}
 //---------------------------------
 
 //---------------------------------
 
 #endif // _FuncSettings__H
+

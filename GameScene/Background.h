@@ -2,8 +2,6 @@
 #define _BackGround__H
 
 #include "..\GameSetup\GameBoard.h"
-#include "..\GameScene\Scence.h"
-#include "..\Objects\SetObj.h"
 
 int szHeightPic, szWidthPic;
 int szPic1, szPic2;

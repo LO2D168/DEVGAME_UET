@@ -1,11 +1,9 @@
 #ifndef _MainObj__H
 #define _MainObj__H
 
-#include "C:/DevGame/GameSetup/GameBoard.h"
-#include "C:/DevGame/Objects/SetObj.h"
-#include "../Meteorite/Meteorite.h"
-#include "heart.h"
 
+#include "heart.h"
+#include "C:\DevGame\GameSetup\Objects.h"
 
 
 class MainCharacter : public Obj, public heart
@@ -30,52 +28,6 @@ public:
 
     void gotAttack() {health--;}
     int getHealth() {return health;}
+    virtual ~MainCharacter() = default;
 };
-
-inline MainCharacter* mainObjCharc = new MainCharacter(MainCharacterIMG, mainSpeed, mainWidthObj, mainHeightObj);
-
-inline void MainRender()
-{
-    mainObjCharc->renderHeart(mainObjCharc->getHealth() - 1);
-    // animation after collision
-    if(mainObjCharc->penalty && (mainObjCharc->penalty % 3 != 0)) {return;}
-    //
-    mainObjCharc->render(mainObjCharc->getPointerObj());
-    mainObjCharc->renderHeart(mainObjCharc->getHealth());
-}
-
-inline void MainFixedUpdate()
-{
-    if(mainObjCharc->penalty)
-    {
-        (mainObjCharc->penalty)--;
-        return;
-    }
-
-    for(auto c: listMeteoEvent)
-    {
-        if(mainObjCharc->checkCollisionObject(c))
-        {
-            mainObjCharc->gotAttack();
-            mainObjCharc->deleteHeart();
-            mainObjCharc->penalty = penaltyValue;
-            break;
-        }
-    }
-
-}
-
-inline void MainElapsedUpdate()
-{
-    mainObjCharc->getDirection();
-    if(mainObjCharc->getInitObj() == true)
-    {
-        mainObjCharc->changePosX(SCREEN_WIDTH / 2 - mainWidthObj / 2);
-        mainObjCharc->changePosY(SCREEN_HEIGHT - mainHeightObj);
-
-        mainObjCharc->changePointerObj(loadTexture(mainObjCharc->getLinkImg(), renderer));
-        mainObjCharc->changInitObj(false);
-    }
-}
-
 #endif // _MainObj__H

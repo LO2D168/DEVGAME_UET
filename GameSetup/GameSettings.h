@@ -30,12 +30,11 @@ inline const int meteoSpeed = 5 ;
 inline const int meteoHeight = 40;
 inline const int meteoWidth = 30;
 inline const int numMeteoImg = 4;
-inline const int meteoEventSpeed = 30;
+inline const int meteoEventSpeed = 50;
 inline const char* meteoArray[] = {"C:/DevGame/image_source/p1.png",
                             "C:/DevGame/image_source/p2.png",
                             "C:/DevGame/image_source/p3.png",
                             "C:/DevGame/image_source/p4.png"};
-inline vector<SDL_Texture*> listPointerMeteo;
 //-----------------------------
 
 //-----------Heart------------
@@ -45,9 +44,35 @@ inline const char* linkToHeartImg = "C:/DevGame/image_source/heart.png";
 inline SDL_Texture* pointerToHeartImg = NULL;
 //-----------------------------
 
+//------------------Bullet-----------
+const int speedBulletLow = 3;
+const int speedBulletHigh = 5;
+const int speedBulletMid = 4;
+const int widthBullet = 20;
+const int heightBullet = 40;
+const int numBulletMain = 4;
+const int numBulletTyp1 = 4;
+const int numBulletTyp2 = 3;
+const int numBulletTyp3 = 2;
 
+inline const char* bulletArray[] ={
+    "C:/DevGame/image_source/mainBullet1.png",
+    "C:/DevGame/image_source/mainBullet2.png",
+    "C:/DevGame/image_source/mainBullet3.png",
+    "C:/DevGame/image_source/mainBullet4.png",
+    "C:/DevGame/image_source/bulletType1_1.png",
+    "C:/DevGame/image_source/bulletType1_2.png",
+    "C:/DevGame/image_source/bulletType1_3.png",
+    "C:/DevGame/image_source/bulletType1_4.png",
+    "C:/DevGame/image_source/bulletType2_1.png",
+    "C:/DevGame/image_source/bulletType2_2.png",
+    "C:/DevGame/image_source/bulletType2_3.png",
+    "C:/DevGame/image_source/bulletType3_1.png",
+    "C:/DevGame/image_source/bulletType3_2.png",
+};
+//----------------------------------
 //---------SpaceShip-----------
-inline const int numTypeSpaceShip = 8;
+inline const int numTypeSpaceShip = 7;
 inline const char* linkToSpaceShip[] ={
         "C:/DevGame/image_source/Example_ships/3B.png",
         "C:/DevGame/image_source/Example_ships/4.png",
@@ -56,10 +81,24 @@ inline const char* linkToSpaceShip[] ={
         "C:/DevGame/image_source/Example_ships/8.png",
         "C:/DevGame/image_source/Example_ships/9.png",
         "C:/DevGame/image_source/Example_ships/10B.png",
-        "C:/DevGame/image_source/Example_ships/13B.png"
 };
 inline vector<SDL_Texture*> listImgSpaceShip;
+const int widthShipType1 = 40;
+const int heightShipType1 = 40;
+const int widthShipType2 = 40;
+const int heightShipType2 = 50;
+const int widthShipType3 = 50;
+const int heightShipType3 = 30;
+const int widthShipType4 = 50;
+const int heightShipType4 = 50;
+const int widthShipType5 = 60;
+const int heightShipType5 = 70;
+const int widthShipType6 = 50;
+const int heightShipType6 = 50;
+const int widthShipType7 = 40;
+const int heightShipType7 = 50;
 
+const int speedSpaecshipEvent = 300;
 //-----------------------------
 
 inline SDL_Window* window = NULL;
@@ -144,15 +183,15 @@ bool checkInit()
         return false;
     }
 
-    fontBold = TTF_OpenFont("../fonts/bold.ttf", 20);
-    fontRegular = TTF_OpenFont("../fonts/regular.ttf", 20);
-    fontLight = TTF_OpenFont("../fonts/light.ttf", 20);
-    fontMedium = TTF_OpenFont("../fonts/medium.ttf", 20);
-    fontSemiBold = TTF_OpenFont("../fonts/semibold.ttf", 20);
-    fontVariable = TTF_OpenFont("../fonts/variable.ttf", 20);
+    // fontBold = TTF_OpenFont("../fonts/bold.ttf", 20);
+    // fontRegular = TTF_OpenFont("../fonts/regular.ttf", 20);
+    // fontLight = TTF_OpenFont("../fonts/light.ttf", 20);
+    // fontMedium = TTF_OpenFont("../fonts/medium.ttf", 20);
+    // fontSemiBold = TTF_OpenFont("../fonts/semibold.ttf", 20);
+    // fontVariable = TTF_OpenFont("../fonts/variable.ttf", 20);
 
-    if (fontSemiBold == NULL || fontMedium == NULL || fontSemiBold == NULL || fontVariable == NULL || fontLight == NULL || fontVariable == NULL)
-        return false;
+    // if (fontSemiBold == NULL || fontMedium == NULL || fontSemiBold == NULL || fontVariable == NULL || fontLight == NULL || fontVariable == NULL)
+    //     return false;
 
 
     return true;

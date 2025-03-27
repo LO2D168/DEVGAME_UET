@@ -1,7 +1,7 @@
 #ifndef _Objects__H
 #define _Objects__H
 
-#include "GameBoard.h"
+#include "GameSettings.h"
 
 class Obj
 {
@@ -85,8 +85,8 @@ public:
     }
 
     typedef pair<double, double> vec;
-    #define x first
-    #define y second
+    #define fi first
+    #define se second
     double angle = 0.0f;
     vec rotatePoint(float cx, float cy, float angle, float px, float py)
     {
@@ -104,7 +104,7 @@ public:
         return {px, py};
     }
 
-    bool checkCollision(const int thatX, const int thatY, const int thatWidth, const int thatHeight, const int thatAngle)
+    bool checkCollision(const int thatX, const int thatY, const int thatWidth, const int thatHeight, const double thatAngle)
     {
           vec rectA[4] =
           {
@@ -125,16 +125,16 @@ public:
          // SAT (Separating Axis Theorem)
          vec axes[4] =
          {
-            {rectA[1].x - rectA[0].x, rectA[1].y - rectA[0].y},
-            {rectA[1].x - rectA[2].x, rectA[1].y - rectA[2].y},
-            {rectB[0].x - rectB[3].x, rectB[0].y - rectB[3].y},
-            {rectB[0].x - rectB[1].x, rectB[0].y - rectB[1].y}
+            {rectA[1].fi - rectA[0].fi, rectA[1].se - rectA[0].se},
+            {rectA[1].fi - rectA[2].fi, rectA[1].se - rectA[2].se},
+            {rectB[0].fi - rectB[3].fi, rectB[0].se - rectB[3].se},
+            {rectB[0].fi - rectB[1].fi, rectB[0].se - rectB[1].se}
          };
 
         for (int i = 0; i < 4; i++) {
-            float length = sqrt(axes[i].x * axes[i].x + axes[i].y * axes[i].y);
-            axes[i].x /= length;
-            axes[i].y /= length;
+            float length = sqrt(axes[i].fi * axes[i].fi + axes[i].se * axes[i].se);
+            axes[i].fi /= length;
+            axes[i].se /= length;
         }
 
         for (int i = 0; i < 4; i++)
@@ -144,13 +144,13 @@ public:
             float minB = INFINITY, maxB = -INFINITY;
 
             for (int j = 0; j < 4; j++) {
-                float projection = rectA[j].x * axes[i].x + rectA[j].y * axes[i].y;
+                float projection = rectA[j].fi * axes[i].fi + rectA[j].se * axes[i].se;
                 minA = fmin(minA, projection);
                 maxA = fmax(maxA, projection);
             }
 
             for (int j = 0; j < 4; j++) {
-                float projection = rectB[j].x * axes[i].x + rectB[j].y * axes[i].y;
+                float projection = rectB[j].fi * axes[i].fi + rectB[j].se * axes[i].se;
                 minB = fmin(minB, projection);
                 maxB = fmax(maxB, projection);
             }
@@ -164,6 +164,7 @@ public:
         return true;
     }
 };
+
 #endif // _Objects__H
 
 
