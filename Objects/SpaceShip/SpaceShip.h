@@ -31,7 +31,7 @@ public:
     }
 
     int getType() {return typeShip;}
-
+    int backId() {return idShip;}
     double getAngle() { return angleObj; }
 
     virtual void appear()
@@ -60,32 +60,22 @@ public:
 
     void move()
     {
-        vector<tuple<int, int, int>> listChoice;
-        for (int i = -speed; i <= speed; i++) {
-            for (int j = -speed; j <= speed; j++) {
-                if (abs(i) + abs(j) <= 2 * speed) {
-                    listChoice.push_back(make_tuple(dist(targetX, targetY, posX + i, posY + j), posX + i, posY + j));
-                }
-            }
-        }
-        sort(listChoice.begin(), listChoice.end());
-        posX = get<1>(listChoice[0]);
-        posY = get<2>(listChoice[1]);
+        posX += speed * vx;
+        posY += speed * vy;
     }
 
     void render()
     {
-        double angle = atan2(vy, vx) * (360.0 / M_PI);
-        SDL_Rect rectObj = {posX, posY, widthObj, heightObj};
-        SDL_RenderCopyEx(renderer, pointerToImg, NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
-    }
-
-    void getId(int val) {
-        idShip = val;
+        double angle = atan2(vy, vx) * (180.0 / M_PI);
+        angle += 90;
+        SDL_FRect rectObj = {posX, posY, widthObj, heightObj};
+        SDL_RenderCopyExF(renderer, pointerToImg, NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
     }
 
     virtual ~SpaceShip() = default;
 };
+
+inline vector<SpaceShip*> listShip;
 
 #include "SpaceShipType1.h"
 #include "SpaceShipType2.h"

@@ -14,6 +14,7 @@ inline vector<SDL_Texture*> listPointerBulletType2;
 inline vector<SDL_Texture*> listPointerBulletType3;
 
 inline int levelGame = 0;
+
 inline void loadImg()
 {
     for(int i = 0; i < numMeteoImg; i++)

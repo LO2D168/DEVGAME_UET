@@ -7,21 +7,19 @@ class Bullet
 {
 protected:
     double vx = 0, vy = 0;
-    int posX = 0, posY = 0;
+    float posX = 0, posY = 0;
     int speed = 0;
-    double angle = 0.0f;
-    int widthObj = 0, heightObj = 0;
+    float angle = 0.0f;
+    float widthObj = 0, heightObj = 0;
     int type = 0;
     int state = 0;
     int number = 0;
-    double disX = 0, disY = 0;
-    double _posX = 0, _posY = 0;
 public:
-    Bullet(const int Speed, int tx, int ty, int width, int height, int Type)
+    Bullet(const int Speed, float tx, float ty, int width, int height, int Type)
     {
         type = Type;
-        _posX = posX = tx;
-        _posY = posY = ty;
+        posX = tx;
+        posY = ty;
         widthObj = width;
         heightObj = height;
         speed = Speed;
@@ -43,18 +41,16 @@ public:
     }
 
     int getState() {return state/16;}
-    int getPosX() {return posX;}
-    int getPosY() {return posY;}
-    int getWidthObj() {return widthObj;}
-    int getHeightObj() {return heightObj;}
-    double getAngle() {return angle;}
+    float getPosX() {return posX;}
+    float getPosY() {return posY;}
+    float getWidthObj() {return widthObj;}
+    float getHeightObj() {return heightObj;}
+    float getAngle() {return angle;}
 
     void move() {
-        _posX += disX * speed;
-        _posY += disY * speed;
 
-        posX = _posX;
-        posY = _posY;
+        posX += speed * vx;
+        posY += speed * vy;
 
         state++;
         state %= number * 16;
@@ -65,13 +61,11 @@ public:
         vy = ty - posY;
 
         double srt = sqrt(vx * vx + vy * vy);
+        angle = atan2f(vy, vx) * (180.0f / M_PI);
+        angle += 90;
+
         vx /= srt;
         vy /= srt;
-
-        disX = vx;
-        disY = vy;
-
-        angle = atan2(vy, vx) * (360.0 / M_PI);
     }
 
     bool check() {
@@ -80,22 +74,23 @@ public:
 
     void render()
     {
-        SDL_Rect rectObj = {posX, posY, widthObj, heightObj};
+        SDL_FRect rectObj = {posX, posY, widthObj, heightObj};
         switch (type) {
             case 1:
-                SDL_RenderCopyEx(renderer, listPointerBulletType1[getState()], NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
+                SDL_RenderCopyExF(renderer, listPointerBulletType1[getState()], NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
                 break;
             case 2:
-                SDL_RenderCopyEx(renderer, listPointerBulletType2[getState()], NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
+                SDL_RenderCopyExF(renderer, listPointerBulletType2[getState()], NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
                 break;
             case 3:
-                SDL_RenderCopyEx(renderer, listPointerBulletType3[getState()], NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
+                SDL_RenderCopyExF(renderer, listPointerBulletType3[getState()], NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
                 break;
             case 4:
-                SDL_RenderCopyEx(renderer, listPointerBulletForMainObj[getState()], NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
+                SDL_RenderCopyExF(renderer, listPointerBulletForMainObj[getState()], NULL, &rectObj, angle, NULL, SDL_FLIP_NONE);
                 break;
         }
 
     }
 };
+
 #endif // _Bullet__H

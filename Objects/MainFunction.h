@@ -8,6 +8,10 @@ inline void var() {
     mainObjCharc->penalty = penaltyValue;
 }
 
+inline int dist(int u, int v, int x, int y) {
+    return (u - x) * (u - x) + (v - y) * (v - y);
+}
+
 inline void MainRender()
 {
     mainObjCharc->renderHeart(mainObjCharc->getHealth() - 1);
@@ -144,6 +148,27 @@ inline void MainElapsedUpdate()
         bullet->changeDirection(mainObjCharc->getPosX() + mainWidthObj/2 - 10, -heightBullet);
         listBulletFromMainShip.push_back(bullet);
     }
+
+    // mainObjCharc->getWord();
+    // if (mainObjCharc->getCheckWord() == true && listShip.size()) {
+    //     tuple<int, int, int> res(1e9, 0, 0);
+    //     for (auto ship: listShip) {
+    //         if (dist(mainObjCharc->getPosX(), mainObjCharc->getPosY(), ship->getPosX(), ship->getPosY()) < get<0>(res)) {
+    //             get<0>(res) = dist(mainObjCharc->getPosX(), mainObjCharc->getPosY(), ship->getPosX(), ship->getPosY());
+    //             get<1>(res) = ship->getPosX();
+    //             get<2>(res) = ship->getPosY();
+    //         }
+    //     }
+    //
+    //     int targetX  = get<1>(res);
+    //     int targetY  = get<2>(res);
+    //
+    //     Bullet* bullet = new Bullet(15, mainObjCharc->getPosX(), mainObjCharc->getPosY(), widthBullet, heightBullet, 4);
+    //     bullet->changeDirection(targetX, targetY);
+    //     listBulletFromMainShip.push_back(bullet);
+    //     mainObjCharc->getDirectionToTarget(targetX, targetY);
+    // }
+
 }
 
 #endif// _MainFunction__H

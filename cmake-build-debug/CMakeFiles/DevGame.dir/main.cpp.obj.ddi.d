@@ -546,4 +546,5 @@ CMakeFiles\DevGame.dir\main.cpp.obj.ddi: C:/DevGame/main.cpp \
  C:/DevGame/Objects/SpaceShip/SpaceShipType7.h \
  C:/DevGame/Objects/Bullet/Bullet.h C:/DevGame/Objects\MainFunction.h \
  C:/DevGame/Objects\SpaceShipFunction.h C:/DevGame/GameSetup/GameBoard.h \
- C:/DevGame/Objects\MateoriteFuntion.h
+ C:/DevGame/Objects\MateoriteFuntion.h C:/DevGame/Data\DataVocal.h \
+ C:/DevGame/Data\DataGame.h

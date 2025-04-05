@@ -3,18 +3,38 @@
 
 #include "GameSettings.h"
 
+typedef pair<double, double> vec;
+#define fi first
+#define se second
+double angle = 0.0f;
+vec rotatePoint(float cx, float cy, float angle, float px, float py)
+{
+    float s = sin(angle);
+    float c = cos(angle);
+
+    px -= cx;
+    py -= cy;
+
+    float xnew = px * c - py * s;
+    float ynew = px * s + py * c;
+
+    px = xnew + cx;
+    py = ynew + cy;
+    return {px, py};
+}
+
 class Obj
 {
 private:
     bool initObj;
 protected:
-    int posX, posY;
-    int widthObj, heightObj;
+    float posX, posY;
+    float widthObj, heightObj;
     int speed;
 
     const char* linkImg = NULL;
     SDL_Texture* pointerToImg = NULL;
-    const double angel = 270;
+    const float angel = 270;
 
 public:
 
@@ -58,8 +78,8 @@ public:
 
     bool checkCollisionObject(const Obj* that)
     {
-        SDL_Rect rectA = {posX, posY, widthObj, heightObj};
-        SDL_Rect rectB = {that->posX, that->posY, that->widthObj, that->heightObj};
+        SDL_FRect rectA = {posX, posY, widthObj, heightObj};
+        SDL_FRect rectB = {that->posX, that->posY, that->widthObj, that->heightObj};
 
         // AABB algorithm
         if (rectA.x + rectA.w > rectB.x &&
@@ -80,31 +100,11 @@ public:
     
     void render(SDL_Texture* pointerImg)
     {
-        SDL_Rect RectObj = {posX, posY, widthObj, heightObj};
-        SDL_RenderCopy(renderer, pointerImg, NULL, &RectObj);
+        SDL_FRect RectObj = {posX, posY, widthObj, heightObj};
+        SDL_RenderCopyF(renderer, pointerImg, NULL, &RectObj);
     }
 
-    typedef pair<double, double> vec;
-    #define fi first
-    #define se second
-    double angle = 0.0f;
-    vec rotatePoint(float cx, float cy, float angle, float px, float py)
-    {
-        float s = sin(angle);
-        float c = cos(angle);
-
-        px -= cx;
-        py -= cy;
-
-        float xnew = px * c - py * s;
-        float ynew = px * s + py * c;
-
-        px = xnew + cx;
-        py = ynew + cy;
-        return {px, py};
-    }
-
-    bool checkCollision(const int thatX, const int thatY, const int thatWidth, const int thatHeight, const double thatAngle)
+    bool checkCollision(const float thatX, const float thatY, const float thatWidth, const float thatHeight, const double thatAngle)
     {
           vec rectA[4] =
           {

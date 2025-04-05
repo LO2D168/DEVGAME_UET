@@ -22,8 +22,8 @@ public:
         if(currentKeyStates[SDL_SCANCODE_LEFT]) moveToX(-1), moveToY(0);
         if(currentKeyStates[SDL_SCANCODE_RIGHT]) moveToX(1), moveToY(0);
 
-        posX = max(posX, 0); posX = min(posX, SCREEN_WIDTH - widthObj);
-        posY = max(posY, 0); posY = min(posY, SCREEN_HEIGHT - heightObj);
+        posX = max(posX, 0.0f); posX = min(posX, SCREEN_WIDTH - widthObj);
+        posY = max(posY, 0.0f); posY = min(posY, SCREEN_HEIGHT - heightObj);
     }
 
     void gotAttack() {health--;}

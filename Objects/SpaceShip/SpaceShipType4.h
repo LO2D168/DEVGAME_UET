@@ -29,4 +29,50 @@ public:
         return newBullet;
     }
 };
+
+inline void fixedUpdateType4(deque<shipType4*> &listShipType4, deque<Bullet*> &listBulletFromMainShip) {
+    int siz = listShipType4.size();
+    for (int i = 0; i < siz; i++) {
+        auto ship = listShipType4.front();
+        listShipType4.pop_front();
+
+        bool check = true;
+
+        int siz2 = listBulletFromMainShip.size();
+        while (siz2) {
+            auto bullet =  listBulletFromMainShip.front();
+            listBulletFromMainShip.pop_front();
+            siz2--;
+
+            if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
+                delete bullet;
+                check = false;
+                break;
+            }
+
+            listBulletFromMainShip.push_back(bullet);
+        }
+
+        if (check) listShipType4.push_back(ship);
+    }
+}
+
+inline void moveType4(deque<shipType4*> &listShipType4, MainCharacter* mainObjCharc, deque<Bullet*> &listBulletFromOtherShip) {
+    for (auto ship: listShipType4) {
+        ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
+        ship->move();
+        if (ship->check()) {
+            Bullet* bullet = ship->getBullet();
+            bullet->changeDirection(mainObjCharc->getPosX(), mainObjCharc->getPosY());
+            listBulletFromOtherShip.push_back(bullet);
+        }
+    }
+}
+
+inline void renderType4(deque<shipType4*> listShipType4, MainCharacter* mainObjCharc) {
+    for (auto ship: listShipType4) {
+        ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
+        ship->render();
+    }
+}
 #endif // _SpaceShipType4__H

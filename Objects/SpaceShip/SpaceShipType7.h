@@ -28,4 +28,59 @@ public:
         return newBullet;
     }
 };
+
+inline void fixedUpdateType7(deque<shipType7*> &listShipType7, deque<Bullet*> &listBulletFromMainShip) {
+    int siz = listShipType7.size();
+    for (int i = 0; i < siz; i++) {
+        auto ship = listShipType7.front();
+        listShipType7.pop_front();
+
+        bool check = true;
+
+        int siz2 = listBulletFromMainShip.size();
+        while (siz2) {
+            auto bullet =  listBulletFromMainShip.front();
+            listBulletFromMainShip.pop_front();
+            siz2--;
+
+            if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
+                delete bullet;
+                check = false;
+                break;
+            }
+
+            listBulletFromMainShip.push_back(bullet);
+        }
+
+        if (check) listShipType7.push_back(ship);
+    }
+}
+
+inline void moveType7(deque<shipType7*> &listShipType7, deque<Bullet*> &listBulletFromOtherShip, MainCharacter* mainObjCharc) {
+    for (auto ship: listShipType7) {
+        ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
+        ship->move();
+
+        if (ship->check()) {
+            Bullet* bullet = ship->getBullet();
+            bullet->changeDirection(mainObjCharc->getPosX(), mainObjCharc->getPosY());
+            listBulletFromOtherShip.push_back(bullet);
+
+            bullet = ship->getBullet();
+            bullet->changeDirection(mainObjCharc->getPosX(), mainObjCharc->getPosY() - 200);
+            listBulletFromOtherShip.push_back(bullet);
+
+            bullet = ship->getBullet();
+            bullet->changeDirection(mainObjCharc->getPosX() - 200, mainObjCharc->getPosY());
+            listBulletFromOtherShip.push_back(bullet);
+        }
+    }
+}
+
+inline void renderType7(deque<shipType7*> listShipType7, MainCharacter* mainObjCharc) {
+    for (auto ship: listShipType7) {
+        ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
+        ship->render();
+    }
+}
 #endif // _SpaceShipType7__H

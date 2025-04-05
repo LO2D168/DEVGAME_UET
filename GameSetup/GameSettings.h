@@ -14,7 +14,7 @@ inline int SCREEN_WIDTH;
 inline int SCREEN_HEIGHT;
 inline int timeFrame = 0;
 
-inline const int mod_vocal = 26000;
+inline const int mod_vocal = 8;
 inline const int scroll_speed = 1;
 inline const char* gameTitle = "AstroType";
 
@@ -183,14 +183,14 @@ bool checkInit()
         return false;
     }
 
-    // fontBold = TTF_OpenFont("../fonts/bold.ttf", 20);
-    // fontRegular = TTF_OpenFont("../fonts/regular.ttf", 20);
-    // fontLight = TTF_OpenFont("../fonts/light.ttf", 20);
-    // fontMedium = TTF_OpenFont("../fonts/medium.ttf", 20);
-    // fontSemiBold = TTF_OpenFont("../fonts/semibold.ttf", 20);
+    fontBold = TTF_OpenFont("../fonts/bold.ttf", 20);
+    fontRegular = TTF_OpenFont("../fonts/regular.ttf", 20);
+    fontLight = TTF_OpenFont("../fonts/light.ttf", 20);
+    fontMedium = TTF_OpenFont("../fonts/medium.ttf", 20);
+    fontSemiBold = TTF_OpenFont("../fonts/semibold.ttf", 20);
     // fontVariable = TTF_OpenFont("../fonts/variable.ttf", 20);
 
-    // if (fontSemiBold == NULL || fontMedium == NULL || fontSemiBold == NULL || fontVariable == NULL || fontLight == NULL || fontVariable == NULL)
+    // if (fontSemiBold == NULL || fontMedium == NULL || fontSemiBold == NULL || fontVariable == NULL || fontLight == NULL)
     //     return false;
 
 

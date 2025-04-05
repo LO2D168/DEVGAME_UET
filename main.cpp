@@ -26,10 +26,11 @@ int WinMain(int argc, char* args[])
 
         createWindows();
         loadImg();
-        //loadData();
+        loadData();
         //prepareData();
         setupScroll();
         score = 0;
+        mainObjCharc = new MainCharacter(MainCharacterIMG, mainSpeed, mainWidthObj, mainHeightObj);
 
         while(mainObjCharc->getHealth())
         {
@@ -50,17 +51,17 @@ int WinMain(int argc, char* args[])
 
 void FixedUpdate()
 {
-    MainFixedUpdate();
     meteoFixedUpdate();
     spaceShipFixedUpdate();
+    MainFixedUpdate();
 }
 
 void ElapsedUpdate()
 {
-    MainElapsedUpdate();
-    bulletElapsedUpdate();
     meteoElapsedUpdate();
     spaceShipElapsedUpdate();
+    bulletElapsedUpdate();
+    MainElapsedUpdate();
 }
 
 void Render()

@@ -16,7 +16,7 @@ inline deque<shipType7*> listShipType7;
 
 inline deque<Bullet*> listBulletFromOtherShip;
 inline deque<Bullet*> listBulletFromMainShip;
-inline MainCharacter* mainObjCharc = new MainCharacter(MainCharacterIMG, mainSpeed, mainWidthObj, mainHeightObj);
+inline MainCharacter* mainObjCharc = NULL;
 inline deque<Meteo*> listMeteoEvent;
 
 #endif //  _SetObj__H

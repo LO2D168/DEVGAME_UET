@@ -24,4 +24,55 @@ public:
         return ((timeFrame - framIn) % speedDropShip == 0);
     }
 };
+
+inline void fixedUpdateType5(deque<shipType5*> &listShipType5, deque<Bullet*> &listBulletFromMainShip) {
+    int siz = listShipType5.size();
+    for (int i = 0; i < siz; i++) {
+        auto ship = listShipType5.front();
+        listShipType5.pop_front();
+
+        bool check = true;
+
+        int siz2 = listBulletFromMainShip.size();
+        while (siz2) {
+            auto bullet =  listBulletFromMainShip.front();
+            listBulletFromMainShip.pop_front();
+            siz2--;
+
+            if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
+                delete bullet;
+                check = false;
+                break;
+            }
+
+            listBulletFromMainShip.push_back(bullet);
+        }
+
+        if (check) listShipType5.push_back(ship);
+    }
+}
+
+inline void moveType5(deque<shipType5*> &listShipType5, deque<shipType1*> &listShipType1,MainCharacter* mainObjCharc) {
+    for (auto ship: listShipType5) {
+        ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
+        ship->move();
+
+        for (int i = 1; i <= 5; i++) {
+            if (ship->check()) {
+                shipType1* newship = new shipType1("a", 30, widthShipType1, heightShipType1);
+                newship->appear();
+                newship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
+                listShipType1.push_back(newship);
+                listShip.push_back(newship);
+            }
+        }
+    }
+}
+
+inline void renderType5(deque<shipType5*> listShipType5, MainCharacter* mainObjCharc) {
+    for (auto ship: listShipType5) {
+        ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
+        ship->render();
+    }
+}
 #endif // _SpaceShipType5__H

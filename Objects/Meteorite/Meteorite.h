@@ -11,7 +11,7 @@ protected:
 public:
 
     Meteo(const char* c, const int speed, const int wobj, const int hobj) : Obj(c, speed, wobj, hobj) {}
-    
+
     int getState()
     {
         return state / 16;
@@ -26,4 +26,5 @@ public:
 
     virtual ~Meteo() {}
 };
+
 #endif // _Meteorite__H
