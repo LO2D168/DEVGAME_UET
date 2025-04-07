@@ -23,6 +23,7 @@ include_directories(${SDL2_INCLUDE_DIR})
 include_directories(${SDL2_image_INCLUDE_DIR})
 include_directories(${SDL2_mixer_INCLUDE_DIR})
 include_directories(${SDL2_ttf_INCLUDE_DIR})
+include_directories(${CMAKE_SOURCE_DIR})
 
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL2_image_LIBRARY} ${SDL2_mixer_LIBRARY} ${SDL2_ttf_LIBRARY})
 

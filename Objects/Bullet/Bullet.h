@@ -1,7 +1,7 @@
 #ifndef _Bullet__H
 #define _Bullet__H
 
-#include "C:\DevGame\GameSetup\GameBoard.h"
+#include ".\GameSetup\GameBoard.h"
 
 class Bullet
 {
@@ -14,6 +14,7 @@ protected:
     int type = 0;
     int state = 0;
     int number = 0;
+    int damage = 0;
 public:
     Bullet(const int Speed, float tx, float ty, int width, int height, int Type)
     {
@@ -23,6 +24,7 @@ public:
         widthObj = width;
         heightObj = height;
         speed = Speed;
+        damage = 1000;
 
         switch (type) {
             case 1:
@@ -46,6 +48,7 @@ public:
     float getWidthObj() {return widthObj;}
     float getHeightObj() {return heightObj;}
     float getAngle() {return angle;}
+    void resetDamage() {damage = 0;}
 
     void move() {
 
@@ -54,6 +57,8 @@ public:
 
         state++;
         state %= number * 16;
+        damage -= 10;
+        damage = max(damage, 0);
     }
 
     void changeDirection(int tx, int ty) {
@@ -71,6 +76,8 @@ public:
     bool check() {
         return (posX <= SCREEN_WIDTH && posY <= SCREEN_HEIGHT && posX >= 0 && posY >= 0);
     }
+
+    int getDamage() {return damage;}
 
     void render()
     {

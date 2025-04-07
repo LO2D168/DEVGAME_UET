@@ -81,7 +81,8 @@ inline const char* digit[] = {"C:/DevGame/image_source/digit/0.png",
                                 "C:/DevGame/image_source/digit/5.png",
                                 "C:/DevGame/image_source/digit/6.png",
                                 "C:/DevGame/image_source/digit/7.png",
-                                "C:/DevGame/image_source/digit/8.png",};
+                                "C:/DevGame/image_source/digit/8.png",
+                                "C:/DevGame/image_source/digit/9.png",};
 inline const float widthText = 30;
 inline const float heightText = 40;
 inline const float startTextX = 30;
@@ -155,12 +156,7 @@ inline const char* MainCharacterIMG = "C:/DevGame/image_source/Example_ships/1.p
 //--------------------------------------------
 
 //----------------Font------------------------
-inline TTF_Font *fontBold = NULL;
-inline TTF_Font *fontRegular = NULL;
-inline TTF_Font *fontLight = NULL;
-inline TTF_Font *fontMedium = NULL;
-inline TTF_Font *fontSemiBold = NULL;
-inline TTF_Font *fontVariable = NULL;
+inline TTF_Font *font = NULL;
 //--------------------------------------------
 
 //------- Start SDL and create windows -------
@@ -200,33 +196,27 @@ bool checkInit()
 
     SCREEN_HEIGHT -= 80;
     SCREEN_WIDTH /= 2.5;
-
-    // Initialize SDL_ttf
+    
     if (TTF_Init() != 0) {
-        std::cerr << "SDL_ttf initialization failed: " << TTF_GetError() << std::endl;
+        cerr << "SDL_ttf initialization failed: " << TTF_GetError() << endl;
         return false;
     }
-    //Set texture filtering to linear
+    
     if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")) {
         printf("Warning: Linear texture filtering not enabled!");
     }
-
-    //Initialize PNG loading
+    
     int imgFlags = IMG_INIT_PNG;
     if (!(IMG_Init(imgFlags) & imgFlags)) {
         printf("SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError());
         return false;
     }
-
-    //Initialize SDL_mixer
+    
     if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
     {
         printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
         return false;
     }
-
-
-
 
     return true;
 }
@@ -251,11 +241,13 @@ inline void close()
     window = NULL;
     SDL_FreeSurface(screenSurface);
     screenSurface= NULL;
+    TTF_CloseFont(font);
 
     //Quit SDL subsystems
     Mix_Quit();
     IMG_Quit();
     SDL_Quit();
+    TTF_Quit();
 }
 
 

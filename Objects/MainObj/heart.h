@@ -1,7 +1,7 @@
 #ifndef HEART_H
 #define HEART_H
 
-#include "C:\DevGame\GameSetup\GameBoard.h"
+#include ".\GameSetup\GameBoard.h"
 
 class heart
 {

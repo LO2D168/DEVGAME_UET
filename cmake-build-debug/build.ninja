@@ -53,7 +53,7 @@ build CMakeFiles/DevGame.dir/main.cpp.obj.ddi: CXX_SCAN__DevGame_Debug C$:/DevGa
   DEP_FILE = CMakeFiles\DevGame.dir\main.cpp.obj.ddi.d
   DYNDEP_INTERMEDIATE_FILE = CMakeFiles\DevGame.dir\main.cpp.obj.ddi
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2 -IC:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include -IC:/DevGame/SDL2_mixer-2.8.1/x86_64-w64-mingw32/include -IC:/DevGame/SDL2_ttf-2.24.0/x86_64-w64-mingw32/include
+  INCLUDES = -IC:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2 -IC:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include -IC:/DevGame/SDL2_mixer-2.8.1/x86_64-w64-mingw32/include -IC:/DevGame/SDL2_ttf-2.24.0/x86_64-w64-mingw32/include -IC:/DevGame
   OBJ_FILE = CMakeFiles\DevGame.dir\main.cpp.obj
   PREPROCESSED_OUTPUT_FILE = CMakeFiles\DevGame.dir\main.cpp.obj.ddi.i
 
@@ -61,7 +61,7 @@ build CMakeFiles/DevGame.dir/main.cpp.obj: CXX_COMPILER__DevGame_scanned_Debug C
   DEP_FILE = CMakeFiles\DevGame.dir\main.cpp.obj.d
   DYNDEP_MODULE_MAP_FILE = CMakeFiles\DevGame.dir\main.cpp.obj.modmap
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2 -IC:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include -IC:/DevGame/SDL2_mixer-2.8.1/x86_64-w64-mingw32/include -IC:/DevGame/SDL2_ttf-2.24.0/x86_64-w64-mingw32/include
+  INCLUDES = -IC:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2 -IC:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include -IC:/DevGame/SDL2_mixer-2.8.1/x86_64-w64-mingw32/include -IC:/DevGame/SDL2_ttf-2.24.0/x86_64-w64-mingw32/include -IC:/DevGame
   OBJECT_DIR = CMakeFiles\DevGame.dir
   OBJECT_FILE_DIR = CMakeFiles\DevGame.dir
   dyndep = CMakeFiles/DevGame.dir/CXX.dd

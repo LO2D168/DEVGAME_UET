@@ -1,14 +1,15 @@
 #ifndef _SpaceShip__H
 #define _SpaceShip__H
 
-#include "C:\DevGame\GameSetup\GameBoard.h"
-#include "C:\DevGame\Objects\Bullet\Bullet.h"
+#include ".\GameSetup\GameBoard.h"
+#include ".\Objects\Bullet\Bullet.h"
+#include "healthBar.h"
 
 inline float dist(float u, float v, float x, float y) {
     return (u - x) * (u - x) + (v - y) * (v - y);
 }
 
-class SpaceShip : public Obj
+class SpaceShip : public Obj, public healthbar
 {
 protected:
     double vx = 0.0f, vy = 0.0f;

@@ -1,9 +1,9 @@
 #ifndef _combatText__H
 #define _combatText__H
 
-#include "C:\DevGame\GameSetup\GameBoard.h"
-#include "C:\DevGame\Objects\SetObj.h"
-#include "C:\DevGame\Data\DataVocal.h"
+#include ".\GameSetup\GameBoard.h"
+#include ".\Objects\SetObj.h"
+#include ".\Data\DataVocal.h"
 
 char getChar()
 {
@@ -50,12 +50,17 @@ char getChar()
 class combatText
 {
   private:
+    int penaltyText = 0;
     string text;
     bool textEnd = true;
   public:
     void getText()
     {
        text = dictionary[rand() % mod_vocal];
+    	text = "ab";
+    }
+	void getStr(string& str) {
+	    text = str;
     }
 
     void getWord()
@@ -72,11 +77,12 @@ class combatText
            text.erase(text.begin());
         }
 
-        if(text.size() == 0) textEnd = true;
+        if(text.size() == 0) textEnd = true, penaltyText = 40;
 	}
 
     bool getCheckWord()
     {
+        if(penaltyText) penaltyText -= 1;
 		return textEnd;
 	}
 
@@ -84,13 +90,14 @@ class combatText
     {
         float postextX = startTextX;
         float postextY = startTextY;
+        float uY = postextY;
 
 		for(int i = 0; i < text.size(); i++)
         {
             int texW = 0;
             int texH = 0;
             SDL_QueryTexture(alphabetPointerToImg[text[i] - 'a'], NULL, NULL, &texW, &texH);
-            texW /= 5;
+            texW /= 4;
             texH = heightText / 2;
             SDL_FRect Rect = {postextX, postextY, float(texW), float(texH)};
             SDL_RenderCopyF(renderer, alphabetPointerToImg[text[i] - 'a'], NULL, &Rect);
@@ -100,8 +107,43 @@ class combatText
                   postextX = startTextX;
                   postextY += texH + 10;
             }
+            uY = max(uY, postextY + texH + 10);
+        }
+
+        if(penaltyText)
+        {
+              SDL_FRect Rect = {0, 0, 20, uY};
+              SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+              SDL_RenderFillRectF(renderer, &Rect);
+        }
+        else
+        {
+              SDL_FRect Rect = {0, 0, 20, uY};
+              SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+              SDL_RenderFillRectF(renderer, &Rect);
         }
 	}
+
+	void renderTextRand(string s, float qx, float qy) {
+    	reverse(s.begin(), s.end());
+	    for (auto c: s) {
+		    SDL_Texture *tex = NULL;
+	    	if ('0' <= c && c <= '9') {tex = digitPointerToImg[c - '0'];}
+	    	else if ('a' <= c && c <= 'z') {tex = alphabetPointerToImg[c - 'a'];}
+	    	else { qx -= 10; continue;}
+
+
+	    	int texW = 0;
+	    	int texH = 0;
+	    	SDL_QueryTexture(tex, NULL, NULL, &texW, &texH);
+	    	texW /= 6;
+	    	texH = heightText / 2;
+
+	    	qx -= texW + 3;
+	    	SDL_FRect Rect = {qx, qy, float(texW), float(texH)};
+	    	SDL_RenderCopyF(renderer, tex, NULL, &Rect);
+	    }
+    }
 };
 
 #endif // _combatText__H

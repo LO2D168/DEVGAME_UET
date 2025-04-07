@@ -1,7 +1,7 @@
 #ifndef _Meteorite__H
 #define _Meteorite__H
 
-#include "C:/DevGame/GameSetup/GameBoard.h"
+#include "./GameSetup/GameBoard.h"
 inline int timeForNewEvent = meteoEventSpeed;
 
 class Meteo : public Obj

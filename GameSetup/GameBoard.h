@@ -51,7 +51,7 @@ inline void loadImg()
         listPointerBulletType3.push_back(pointerObj);
     }
 
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i <= 9; i++) {
         SDL_Texture* pointerObj = loadTexture(digit[i], renderer);
         digitPointerToImg[i] = pointerObj;
     }

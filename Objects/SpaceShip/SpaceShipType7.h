@@ -14,6 +14,7 @@ public:
         speed = speedType7;
         typeShip = 7;
         pointerToImg = listImgSpaceShip[3];
+        setUpHealth(1500);
     }
 
     void getframIn(int val) {
@@ -44,10 +45,13 @@ inline void fixedUpdateType7(deque<shipType7*> &listShipType7, deque<Bullet*> &l
             siz2--;
 
             if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
+                if (ship->decHealth(bullet->getDamage())) {
+                    check = false;
+                    score++;
+                    break;
+                }
                 delete bullet;
                 bullet = nullptr;
-                check = false;
-                break;
             }
 
             listBulletFromMainShip.push_back(bullet);
@@ -86,6 +90,7 @@ inline void renderType7(deque<shipType7*> &listShipType7, MainCharacter* mainObj
     for (auto ship: listShipType7) {
         ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
         ship->render();
+        ship->renderHealth(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), 3);
     }
 }
 

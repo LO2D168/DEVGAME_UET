@@ -4,11 +4,11 @@
 
 #include "heart.h"
 #include "combatText.h"
-#include "score.h"
-#include "C:\DevGame\GameSetup\Objects.h"
+#include ".\GameSetup\Objects.h"
+#include ".\GameSetup\GameSettings.h"
 
 
-class MainCharacter : public Obj, public heart, public combatText, public Score
+class MainCharacter : public Obj, public heart, public combatText
 {
 protected:
     int health = 5;
@@ -53,6 +53,23 @@ public:
                 }
             }
         }
+    }
+
+    void renderScore() {
+        string text = "score: ";
+        string num;
+        int tmp = score;
+        if (tmp == 0) {
+            num = "0";
+        }
+        while (tmp) {
+            int digitZ = tmp % 10;
+            tmp /= 10;
+            num.push_back(digitZ + '0');
+        }
+
+        text += num;
+        renderTextRand(text, SCREEN_WIDTH, 50);
     }
 
     void gotAttack() {health--;}

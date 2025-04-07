@@ -14,6 +14,7 @@ public:
         speed = speedType5;
         pointerToImg = listImgSpaceShip[5];
         typeShip = 5;
+        setUpHealth(2000);
     }
 
     void getFram(int val) {
@@ -38,11 +39,15 @@ inline void fixedUpdateType5(deque<shipType5*> &listShipType5, deque<Bullet*> &l
             auto bullet =  listBulletFromMainShip.front();
             listBulletFromMainShip.pop_front();
             siz2--;
+            bool check2 = true;
 
             if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
+                if (ship->decHealth(bullet->getDamage())) {
+                    score++;
+                    check = false;
+                }
                 delete bullet;
                 bullet = nullptr;
-                check = false;
                 break;
             }
 
@@ -77,6 +82,7 @@ inline void renderType5(deque<shipType5*> &listShipType5, MainCharacter* mainObj
     for (auto ship: listShipType5) {
         ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
         ship->render();
+        ship->renderHealth(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), 3);
     }
 }
 

@@ -12,6 +12,7 @@ inline void MainRender()
 {
     mainObjCharc->renderHeart(mainObjCharc->getHealth() - 1);
     mainObjCharc->renderText();
+    mainObjCharc->renderScore();
     // animation after collision
     if(mainObjCharc->penalty && (mainObjCharc->penalty % 3 != 0)) {return;}
     //
