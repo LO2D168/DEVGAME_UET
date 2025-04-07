@@ -24,7 +24,7 @@ public:
         posY += speed;
     }
 
-    virtual ~Meteo() {}
+    virtual ~Meteo() = default;
 };
 
 #endif // _Meteorite__H

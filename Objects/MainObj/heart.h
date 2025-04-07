@@ -15,7 +15,7 @@ public:
         {
             if(i != num || (i == num && heartPenalty == 0) || (i == num && heartPenalty && (heartPenalty % 3 == 0)))
             {
-                SDL_Rect RectObj = {i * heathWidthObj, 0 , heathWidthObj, heathHeightObj};
+                SDL_Rect RectObj = {SCREEN_WIDTH - (i + 1) * heathWidthObj, 0 , heathWidthObj, heathHeightObj};
                 SDL_RenderCopy(renderer, pointerToHeartImg, NULL, &RectObj);
             }
         }

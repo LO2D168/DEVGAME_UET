@@ -34,7 +34,7 @@ protected:
 
     const char* linkImg = NULL;
     SDL_Texture* pointerToImg = NULL;
-    const float angel = 270;
+    float angleObj = 0.0f;
 
 public:
 
@@ -98,7 +98,7 @@ public:
         return (posX < 0 || posY < 0 || posX > SCREEN_WIDTH || posY > SCREEN_HEIGHT);
     }
     
-    void render(SDL_Texture* pointerImg)
+    virtual void render(SDL_Texture* pointerImg)
     {
         SDL_FRect RectObj = {posX, posY, widthObj, heightObj};
         SDL_RenderCopyF(renderer, pointerImg, NULL, &RectObj);

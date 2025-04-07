@@ -50,5 +50,15 @@ inline void loadImg()
         SDL_Texture* pointerObj = loadTexture(bulletArray[i], renderer);
         listPointerBulletType3.push_back(pointerObj);
     }
+
+    for (int i = 0; i < 9; i++) {
+        SDL_Texture* pointerObj = loadTexture(digit[i], renderer);
+        digitPointerToImg[i] = pointerObj;
+    }
+
+    for (int i = 0; i < 26; i++) {
+        SDL_Texture* pointerObj = loadTexture(alphabet[i], renderer);
+        alphabetPointerToImg[i] = pointerObj;
+    }
 }
 #endif // _GameBoard__H

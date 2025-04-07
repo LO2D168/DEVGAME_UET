@@ -56,6 +56,7 @@ inline void fixedUpdateType6(deque<shipType6*> &listShipType6, deque<Bullet*> &l
 
             if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
                 delete bullet;
+                bullet = nullptr;
                 check = false;
                 break;
             }
@@ -64,6 +65,10 @@ inline void fixedUpdateType6(deque<shipType6*> &listShipType6, deque<Bullet*> &l
         }
 
         if (check) listShipType6.push_back(ship);
+        else {
+            delete ship;
+            ship = nullptr;
+        }
     }
 }
 
@@ -86,10 +91,22 @@ inline void moveType6(deque<shipType6*> &listShipType6, deque<Bullet*> &listBull
     }
 }
 
-inline void renderType6(deque<shipType6*> listShipType6, MainCharacter* mainObjCharc) {
+inline void renderType6(deque<shipType6*> &listShipType6, MainCharacter* mainObjCharc) {
     for (auto ship: listShipType6) {
         ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
         ship->render();
     }
+}
+
+inline tuple<float, float, float> findNearestType6(tuple<float, float, float> res, deque<shipType6*> &listShipType6, MainCharacter* mainObjCharc) {
+    for (auto ship: listShipType6) {
+        if (dist(mainObjCharc->getPosX(), mainObjCharc->getPosY(), ship->getPosX(), ship->getPosY()) < get<0>(res)) {
+            get<0>(res) = dist(mainObjCharc->getPosX(), mainObjCharc->getPosY(), ship->getPosX(), ship->getPosY());
+            get<1>(res) = ship->getPosX();
+            get<2>(res) = ship->getPosY();
+        }
+    }
+
+    return res;
 }
 #endif // _SpaceShipType6__H

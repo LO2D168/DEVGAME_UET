@@ -4,7 +4,8 @@
 #include "SetObj.h"
 #include "../GameSetup/GameBoard.h"
 
-inline int timeForNewEventSpaceShip = 90 - levelGame;
+inline int timeForNewEventSpaceShip = 60;
+inline int speedSpaecshipEvent = 200 - levelGame;
 
 inline void spaceShipFixedUpdate() {
 
@@ -23,7 +24,7 @@ inline void spaceShipElapsedUpdate() {
     {
         timeForNewEventSpaceShip += rand() % speedSpaecshipEvent + speedSpaecshipEvent;
 
-        int num = randW();
+        int num = randW() % 7 + 1;
         switch (num) {
             case 1: {
                 int sl = rand() % 4 + 1;
@@ -31,7 +32,6 @@ inline void spaceShipElapsedUpdate() {
                     shipType1* ship = new shipType1("a", 5, widthShipType1, heightShipType1);
                     ship->appear();
                     ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
-                    listShip.push_back(ship);
                     listShipType1.push_back(ship);
                 }
             }
@@ -43,7 +43,6 @@ inline void spaceShipElapsedUpdate() {
                         shipType2* ship = new shipType2("a", 30, widthShipType2, heightShipType2);
                         ship->appear();
                         ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
-                        listShip.push_back(ship);
                         listShipType2.push_back(ship);
                     }
                 }
@@ -55,7 +54,6 @@ inline void spaceShipElapsedUpdate() {
                     shipType3* ship = new shipType3("a", 30, widthShipType3, heightShipType3);
                     ship->appear();
                     ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
-                    listShip.push_back(ship);
                     listShipType3.push_back(ship);
                 }
             }
@@ -67,7 +65,6 @@ inline void spaceShipElapsedUpdate() {
                     ship->getframIn(timeFrame);
                     ship->appear();
                     ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
-                    listShip.push_back(ship);
                     listShipType4.push_back(ship);
                 }
             }
@@ -79,7 +76,6 @@ inline void spaceShipElapsedUpdate() {
                     shipType5* ship = new shipType5("a", 30, widthShipType5, heightShipType5);
                     ship->appear();
                     ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
-                    listShip.push_back(ship);
                     listShipType5.push_back(ship);
                 }
             }
@@ -89,11 +85,9 @@ inline void spaceShipElapsedUpdate() {
                 int sl = rand() % 2 + 1;
                 for (int i = 0; i < sl; i++) {
                     shipType6* ship = new shipType6("a", 30, widthShipType6, heightShipType6);
-
                     ship->getframIn(timeFrame);
                     ship->appear();
                     ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
-                    listShip.push_back(ship);
                     listShipType6.push_back(ship);
                 }
             }
@@ -106,7 +100,6 @@ inline void spaceShipElapsedUpdate() {
                         ship->getframIn(timeFrame);
                         ship->appear();
                         ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
-                        listShip.push_back(ship);
                         listShipType7.push_back(ship);
                     }
                 }

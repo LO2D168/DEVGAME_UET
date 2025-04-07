@@ -8,8 +8,10 @@ inline void meteoFixedUpdate()
     {
         if(listMeteoEvent.front()->getPosY() > SCREEN_HEIGHT)
         {
-            delete listMeteoEvent.front();
+            auto meteo = listMeteoEvent.front();
             listMeteoEvent.pop_front();
+            delete meteo;
+            meteo = nullptr;
         }
         else
         {

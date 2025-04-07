@@ -3,9 +3,10 @@
 
 inline vector<string> dictionary;
 inline void loadData() {
-       freopen("dictionary.txt","r",stdin);
+       freopen("C:/DevGame/Data/dictionary.txt","r",stdin);
        string s;
-       while (cin >> s) {
+       for (int i = 0; i < mod_vocal; i++) {
+              cin >> s;
               dictionary.push_back(s);
        }
 }

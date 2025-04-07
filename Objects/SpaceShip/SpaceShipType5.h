@@ -41,6 +41,7 @@ inline void fixedUpdateType5(deque<shipType5*> &listShipType5, deque<Bullet*> &l
 
             if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
                 delete bullet;
+                bullet = nullptr;
                 check = false;
                 break;
             }
@@ -49,6 +50,10 @@ inline void fixedUpdateType5(deque<shipType5*> &listShipType5, deque<Bullet*> &l
         }
 
         if (check) listShipType5.push_back(ship);
+        else {
+            delete ship;
+            ship = nullptr;
+        }
     }
 }
 
@@ -63,16 +68,27 @@ inline void moveType5(deque<shipType5*> &listShipType5, deque<shipType1*> &listS
                 newship->appear();
                 newship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
                 listShipType1.push_back(newship);
-                listShip.push_back(newship);
             }
         }
     }
 }
 
-inline void renderType5(deque<shipType5*> listShipType5, MainCharacter* mainObjCharc) {
+inline void renderType5(deque<shipType5*> &listShipType5, MainCharacter* mainObjCharc) {
     for (auto ship: listShipType5) {
         ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
         ship->render();
     }
+}
+
+inline tuple<float, float, float> findNearestType5(tuple<float, float, float> res, deque<shipType5*> &listShipType5, MainCharacter* mainObjCharc) {
+    for (auto ship: listShipType5) {
+        if (dist(mainObjCharc->getPosX(), mainObjCharc->getPosY(), ship->getPosX(), ship->getPosY()) < get<0>(res)) {
+            get<0>(res) = dist(mainObjCharc->getPosX(), mainObjCharc->getPosY(), ship->getPosX(), ship->getPosY());
+            get<1>(res) = ship->getPosX();
+            get<2>(res) = ship->getPosY();
+        }
+    }
+
+    return res;
 }
 #endif // _SpaceShipType5__H

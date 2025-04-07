@@ -531,7 +531,9 @@ CMakeFiles\DevGame.dir\main.cpp.obj.ddi: C:/DevGame/main.cpp \
  C:/DevGame/GameSetup/GameBoard.h C:/DevGame/Objects\Obj.h \
  C:/DevGame/Objects\BulletFunction.h C:/DevGame/Objects\SetObj.h \
  C:/DevGame/Objects/MainObj/MainObj.h C:/DevGame/Objects/MainObj/heart.h \
- C:\DevGame\GameSetup\GameBoard.h C:\DevGame\GameSetup\Objects.h \
+ C:\DevGame\GameSetup\GameBoard.h C:/DevGame/Objects/MainObj/combatText.h \
+ C:\DevGame\Objects\SetObj.h C:\DevGame\Data\DataVocal.h \
+ C:/DevGame/Objects/MainObj/score.h C:\DevGame\GameSetup\Objects.h \
  C:/DevGame/Objects/Meteorite/Meteorite.h \
  C:/DevGame/GameSetup/GameBoard.h \
  C:/DevGame/Objects/SpaceShip/SpaceShip.h \

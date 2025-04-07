@@ -14,7 +14,7 @@ inline int SCREEN_WIDTH;
 inline int SCREEN_HEIGHT;
 inline int timeFrame = 0;
 
-inline const int mod_vocal = 8;
+inline const int mod_vocal = 25000;
 inline const int scroll_speed = 1;
 inline const char* gameTitle = "AstroType";
 
@@ -44,6 +44,49 @@ inline const char* linkToHeartImg = "C:/DevGame/image_source/heart.png";
 inline SDL_Texture* pointerToHeartImg = NULL;
 //-----------------------------
 
+//-----------Text-------------------
+inline SDL_Texture* alphabetPointerToImg[26];
+inline SDL_Texture* digitPointerToImg[10];
+inline const char* alphabet[] = {"C:/DevGame/image_source/alphabet/A.png",
+                                "C:/DevGame/image_source/alphabet/B.png",
+                                "C:/DevGame/image_source/alphabet/C.png",
+                                "C:/DevGame/image_source/alphabet/D.png",
+                                "C:/DevGame/image_source/alphabet/E.png",
+                                "C:/DevGame/image_source/alphabet/F.png",
+                                "C:/DevGame/image_source/alphabet/G.png",
+                                "C:/DevGame/image_source/alphabet/H.png",
+                                "C:/DevGame/image_source/alphabet/I.png",
+                                "C:/DevGame/image_source/alphabet/J.png",
+                                "C:/DevGame/image_source/alphabet/K.png",
+                                "C:/DevGame/image_source/alphabet/L.png",
+                                "C:/DevGame/image_source/alphabet/M.png",
+                                "C:/DevGame/image_source/alphabet/N.png",
+                                "C:/DevGame/image_source/alphabet/O.png",
+                                "C:/DevGame/image_source/alphabet/P.png",
+                                "C:/DevGame/image_source/alphabet/Q.png",
+                                "C:/DevGame/image_source/alphabet/R.png",
+                                "C:/DevGame/image_source/alphabet/S.png",
+                                "C:/DevGame/image_source/alphabet/T.png",
+                                "C:/DevGame/image_source/alphabet/U.png",
+                                "C:/DevGame/image_source/alphabet/V.png",
+                                "C:/DevGame/image_source/alphabet/W.png",
+                                "C:/DevGame/image_source/alphabet/X.png",
+                                "C:/DevGame/image_source/alphabet/Y.png",
+                                "C:/DevGame/image_source/alphabet/Z.png",};
+inline const char* digit[] = {"C:/DevGame/image_source/digit/0.png",
+                                "C:/DevGame/image_source/digit/1.png",
+                                "C:/DevGame/image_source/digit/2.png",
+                                "C:/DevGame/image_source/digit/3.png",
+                                "C:/DevGame/image_source/digit/4.png",
+                                "C:/DevGame/image_source/digit/5.png",
+                                "C:/DevGame/image_source/digit/6.png",
+                                "C:/DevGame/image_source/digit/7.png",
+                                "C:/DevGame/image_source/digit/8.png",};
+inline const float widthText = 30;
+inline const float heightText = 40;
+inline const float startTextX = 30;
+inline const float startTextY = 10;
+//-----------------------------------
 //------------------Bullet-----------
 const int speedBulletLow = 3;
 const int speedBulletHigh = 5;
@@ -97,8 +140,7 @@ const int widthShipType6 = 50;
 const int heightShipType6 = 50;
 const int widthShipType7 = 40;
 const int heightShipType7 = 50;
-
-const int speedSpaecshipEvent = 300;
+inline int idShip = 0;
 //-----------------------------
 
 inline SDL_Window* window = NULL;
@@ -183,15 +225,7 @@ bool checkInit()
         return false;
     }
 
-    fontBold = TTF_OpenFont("../fonts/bold.ttf", 20);
-    fontRegular = TTF_OpenFont("../fonts/regular.ttf", 20);
-    fontLight = TTF_OpenFont("../fonts/light.ttf", 20);
-    fontMedium = TTF_OpenFont("../fonts/medium.ttf", 20);
-    fontSemiBold = TTF_OpenFont("../fonts/semibold.ttf", 20);
-    // fontVariable = TTF_OpenFont("../fonts/variable.ttf", 20);
 
-    // if (fontSemiBold == NULL || fontMedium == NULL || fontSemiBold == NULL || fontVariable == NULL || fontLight == NULL)
-    //     return false;
 
 
     return true;

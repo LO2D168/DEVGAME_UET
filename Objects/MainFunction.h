@@ -8,13 +8,10 @@ inline void var() {
     mainObjCharc->penalty = penaltyValue;
 }
 
-inline int dist(int u, int v, int x, int y) {
-    return (u - x) * (u - x) + (v - y) * (v - y);
-}
-
 inline void MainRender()
 {
     mainObjCharc->renderHeart(mainObjCharc->getHealth() - 1);
+    mainObjCharc->renderText();
     // animation after collision
     if(mainObjCharc->penalty && (mainObjCharc->penalty % 3 != 0)) {return;}
     //
@@ -142,33 +139,52 @@ inline void MainElapsedUpdate()
         mainObjCharc->changInitObj(false);
     }
 
-    const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-    if (currentKeyStates[SDL_SCANCODE_SPACE] && (timeFrame % 5 == 0)) {
-        Bullet* bullet = new Bullet(7, mainObjCharc->getPosX() + mainWidthObj/2 - 10, mainObjCharc->getPosY(), widthBullet, heightBullet, 4);
-        bullet->changeDirection(mainObjCharc->getPosX() + mainWidthObj/2 - 10, -heightBullet);
-        listBulletFromMainShip.push_back(bullet);
-    }
 
-    // mainObjCharc->getWord();
-    // if (mainObjCharc->getCheckWord() == true && listShip.size()) {
-    //     tuple<int, int, int> res(1e9, 0, 0);
-    //     for (auto ship: listShip) {
-    //         if (dist(mainObjCharc->getPosX(), mainObjCharc->getPosY(), ship->getPosX(), ship->getPosY()) < get<0>(res)) {
-    //             get<0>(res) = dist(mainObjCharc->getPosX(), mainObjCharc->getPosY(), ship->getPosX(), ship->getPosY());
-    //             get<1>(res) = ship->getPosX();
-    //             get<2>(res) = ship->getPosY();
-    //         }
-    //     }
+    // const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+    // if (currentKeyStates[SDL_SCANCODE_SPACE] && (timeFrame % 5 == 0)) {
+    //     tuple<float, float, float> res(1e9, SCREEN_WIDTH/2, 0);
     //
-    //     int targetX  = get<1>(res);
-    //     int targetY  = get<2>(res);
+    //     res = findNearestType1(res, listShipType1, mainObjCharc);
+    //     res = findNearestType2(res, listShipType2, mainObjCharc);
+    //     res = findNearestType3(res, listShipType3, mainObjCharc);
+    //     res = findNearestType4(res, listShipType4, mainObjCharc);
+    //     res = findNearestType5(res, listShipType5, mainObjCharc);
+    //     res = findNearestType6(res, listShipType6, mainObjCharc);
+    //     res = findNearestType7(res, listShipType7, mainObjCharc);
     //
-    //     Bullet* bullet = new Bullet(15, mainObjCharc->getPosX(), mainObjCharc->getPosY(), widthBullet, heightBullet, 4);
+    //     float targetX  = get<1>(res);
+    //     float targetY  = get<2>(res);
+    //
+    //     mainObjCharc->getDirectionToTarget(targetX, targetY);
+    //     Bullet* bullet = new Bullet(10, mainObjCharc->getPosX() + mainWidthObj/2 - 10, mainObjCharc->getPosY(), widthBullet, heightBullet, 4);
     //     bullet->changeDirection(targetX, targetY);
     //     listBulletFromMainShip.push_back(bullet);
     //     mainObjCharc->getDirectionToTarget(targetX, targetY);
     // }
 
+    mainObjCharc->getWord();
+    if (mainObjCharc->getCheckWord() == true &&
+        (listShipType1.size() || listShipType2.size() || listShipType3.size() ||
+            listShipType4.size() || listShipType5.size() || listShipType6.size() || listShipType7.size())) {
+        tuple<float, float, float> res(1e9, SCREEN_WIDTH/2, 0);
+
+        res = findNearestType1(res, listShipType1, mainObjCharc);
+        res = findNearestType2(res, listShipType2, mainObjCharc);
+        res = findNearestType3(res, listShipType3, mainObjCharc);
+        res = findNearestType4(res, listShipType4, mainObjCharc);
+        res = findNearestType5(res, listShipType5, mainObjCharc);
+        res = findNearestType6(res, listShipType6, mainObjCharc);
+        res = findNearestType7(res, listShipType7, mainObjCharc);
+
+        float targetX  = get<1>(res);
+        float targetY  = get<2>(res);
+
+        mainObjCharc->getDirectionToTarget(targetX, targetY);
+        Bullet* bullet = new Bullet(10, mainObjCharc->getPosX() + mainWidthObj/2 - 10, mainObjCharc->getPosY(), widthBullet, heightBullet, 4);
+        bullet->changeDirection(targetX, targetY);
+        listBulletFromMainShip.push_back(bullet);
+        mainObjCharc->getDirectionToTarget(targetX, targetY);
+    }
 }
 
 #endif// _MainFunction__H

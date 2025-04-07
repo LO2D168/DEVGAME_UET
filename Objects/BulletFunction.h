@@ -20,6 +20,10 @@ void bulletElapsedUpdate() {
             bullet->move();
             listBulletFromOtherShip.push_back(bullet);
         }
+        else {
+            delete bullet;
+            bullet = nullptr;
+        }
     }
 
     siz = listBulletFromMainShip.size();
@@ -29,6 +33,10 @@ void bulletElapsedUpdate() {
         if (bullet->check()) {
             bullet->move();
             listBulletFromMainShip.push_back(bullet);
+        }
+        else {
+            delete bullet;
+            bullet = nullptr;
         }
     }
 }

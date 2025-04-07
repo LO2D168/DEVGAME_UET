@@ -4,13 +4,16 @@
 #include "C:\DevGame\GameSetup\GameBoard.h"
 #include "C:\DevGame\Objects\Bullet\Bullet.h"
 
+inline float dist(float u, float v, float x, float y) {
+    return (u - x) * (u - x) + (v - y) * (v - y);
+}
+
 class SpaceShip : public Obj
 {
 protected:
     double vx = 0.0f, vy = 0.0f;
     double angleObj = 0;
     int typeShip = 0;
-    int idShip = 0;
     int targetX = 0, targetY = 0;
 public:
     SpaceShip(const char* c, const int Speed, const int wobj, const int hobj) : Obj(c, Speed, wobj, hobj) {}
@@ -27,7 +30,8 @@ public:
         vx /= length;
         vy /= length;
 
-        angleObj = atan2(vy, vx) * (360.0 / M_PI);
+        angleObj = atan2(vy, vx) * (180.0 / M_PI);
+        angleObj += 90;
     }
 
     int getType() {return typeShip;}
@@ -40,21 +44,21 @@ public:
 
         switch (type) {
             case 0:
-                posX = -widthObj;
-                posY = rand() % (SCREEN_HEIGHT / 2) - heightObj;
+                posX = -widthObj/2;
+                posY = rand() % (SCREEN_HEIGHT / 2) - heightObj/2;
                 break;
             case 1:
-                posX = rand() % SCREEN_WIDTH - widthObj;
-                posY = -heightObj;
+                posX = rand() % SCREEN_WIDTH - widthObj/2;
+                posY = -heightObj/2;
                 break;
             case 2:
                 posX = SCREEN_WIDTH;
-                posY = rand() % (SCREEN_HEIGHT / 2) - heightObj;
+                posY = rand() % (SCREEN_HEIGHT / 2) - heightObj/2;
                 break;
         }
     }
 
-    int dist(int x, int y, int u, int v) {
+    float dist(float x, float y, float u, float v) {
         return (u - x) * (u - x) + (v - y) * (v - y);
     }
 
@@ -74,8 +78,6 @@ public:
 
     virtual ~SpaceShip() = default;
 };
-
-inline vector<SpaceShip*> listShip;
 
 #include "SpaceShipType1.h"
 #include "SpaceShipType2.h"

@@ -6,10 +6,6 @@
 
 using namespace std;
 
-void FixedUpdate();
-void ElapsedUpdate();
-void Render();
-
 int WinMain(int argc, char* args[])
 {
     if(!checkInit()) {
@@ -17,29 +13,19 @@ int WinMain(int argc, char* args[])
     }
     else
     {
-        if(!checkWindows())
-        {
-            printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError());
-        }
-
+        if(!checkWindows()) printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError());
         SDL_Event e;
 
-        createWindows();
-        loadImg();
-        loadData();
-        //prepareData();
-        setupScroll();
-        score = 0;
+        createWindows(); loadImg(); loadData(); setupScroll(); score = 0;
+
         mainObjCharc = new MainCharacter(MainCharacterIMG, mainSpeed, mainWidthObj, mainHeightObj);
+        idShip = 0;
 
         while(mainObjCharc->getHealth())
         {
             timeFrame++;
             if ( (SDL_PollEvent(&e) != 0) && (e.type == SDL_QUIT)) break;
-
-            FixedUpdate();
-            ElapsedUpdate();
-            Render();
+            play();
 
             SDL_Delay(16);
         }
@@ -47,29 +33,4 @@ int WinMain(int argc, char* args[])
         close();
     }
     return 0;
-}
-
-void FixedUpdate()
-{
-    meteoFixedUpdate();
-    spaceShipFixedUpdate();
-    MainFixedUpdate();
-}
-
-void ElapsedUpdate()
-{
-    meteoElapsedUpdate();
-    spaceShipElapsedUpdate();
-    bulletElapsedUpdate();
-    MainElapsedUpdate();
-}
-
-void Render()
-{
-    scroll();
-    meteoRender();
-    spaceShipRender();
-    bulletRender();
-    MainRender();
-    SDL_RenderPresent(renderer);
 }

@@ -32,6 +32,7 @@ inline void fixedUpdateType2(deque<shipType2*> &listShipType2, deque<Bullet*> &l
 
             if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
                 delete bullet;
+                bullet = nullptr;
                 check = false;
                 break;
             }
@@ -40,6 +41,10 @@ inline void fixedUpdateType2(deque<shipType2*> &listShipType2, deque<Bullet*> &l
         }
 
         if (check) listShipType2.push_back(ship);
+        else {
+            delete ship;
+            ship = nullptr;
+        }
     }
 }
 
@@ -55,6 +60,18 @@ inline void renderType2(deque<shipType2*> &listShipType2, MainCharacter* mainObj
         ship->trackingMainObj(mainObjCharc->getPosX(), mainObjCharc->getPosY());
         ship->render();
     }
+}
+
+inline tuple<float, float, float> findNearestType2(tuple<float, float, float> res, deque<shipType2*> &listShipType2, MainCharacter* mainObjCharc) {
+    for (auto ship: listShipType2) {
+        if (dist(mainObjCharc->getPosX(), mainObjCharc->getPosY(), ship->getPosX(), ship->getPosY()) < get<0>(res)) {
+            get<0>(res) = dist(mainObjCharc->getPosX(), mainObjCharc->getPosY(), ship->getPosX(), ship->getPosY());
+            get<1>(res) = ship->getPosX();
+            get<2>(res) = ship->getPosY();
+        }
+    }
+
+    return res;
 }
 
 #endif // _SpaceShipType2__H
