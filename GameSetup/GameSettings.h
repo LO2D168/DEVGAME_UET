@@ -150,10 +150,22 @@ inline SDL_Renderer* renderer = NULL;
 inline SDL_Texture* pointerBackground = NULL;
 
 //----------Link img--------------------------
-
 inline const char* background = "../image_source/background.png";
 inline const char* MainCharacterIMG = "C:/DevGame/image_source/Example_ships/1.png";
 //--------------------------------------------
+
+//------------------Menu----------------------
+inline const char* menuImage = "C:/DevGame/image_source/Menu/menuImage/backgroundMenu.png";
+inline const char* button[] = {"C:/DevGame/image_source/Menu/menuImage/play.png",
+                        "C:/DevGame/image_source/Menu/menuImage/setting.png",
+                        "C:/DevGame/image_source/Menu/menuImage/tutorial.png",
+                        "C:/'DevGame/image_source/Menu/menuImage/exitf.png",};
+inline const char* mouse = "C:/DevGame/image_source/Menu/mouse.png";
+inline SDL_Texture* buttonPointerImg[4];
+inline SDL_Texture* menuPointerImg;
+inline SDL_Texture* mousePointerImg;
+//--------------------------------------------
+
 
 //----------------Font------------------------
 inline TTF_Font *font = NULL;

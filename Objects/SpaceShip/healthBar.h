@@ -20,6 +20,8 @@ class healthbar {
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
         SDL_RenderFillRectF(renderer, &rect);
     }
+
+  virtual ~healthbar() = default;
 };
 
 #endif // _healthBar__H

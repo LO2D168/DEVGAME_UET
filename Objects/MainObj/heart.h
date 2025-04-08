@@ -26,6 +26,8 @@ public:
     {
         heartPenalty = penaltyValue;
     }
+
+    virtual ~heart() = default;
 };
 
 #endif //HEART_H

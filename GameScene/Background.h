@@ -6,14 +6,14 @@
 int szHeightPic, szWidthPic;
 int szPic1, szPic2;
 
-void setupScroll()
+inline void setupScroll()
 {
     SDL_QueryTexture(pointerBackground, NULL, NULL, &szWidthPic, &szHeightPic);
 
     szPic1 = 0;
     szPic2 = -szHeightPic;
 }
-void scroll()
+inline void scroll()
 {
     szPic1 += scroll_speed;
     szPic2 += scroll_speed;
@@ -29,13 +29,13 @@ void scroll()
     SDL_RenderCopy(renderer, pointerBackground, NULL, &Part2);
 }
 
-void createWindows()
+inline void createWindows()
 {
     renderer = createRenderer(window);
     pointerBackground = loadTexture(background, renderer);
 }
 
-void closeWindows()
+inline void closeWindows()
 {
     //destroy renderer
 

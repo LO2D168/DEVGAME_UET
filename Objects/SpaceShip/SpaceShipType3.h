@@ -13,7 +13,7 @@ public:
         speed = speedType3;
         pointerToImg = listImgSpaceShip[4];
         typeShip = 3;
-        setUpHealth(1000);
+        setUpHealth(500);
     }
 
     void tracking(int x, int y)
@@ -45,12 +45,12 @@ inline void fixedUpdateType3(deque<shipType3*> &listShipType3, deque<Bullet*> &l
 
             if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
                 if (ship->decHealth(bullet->getDamage())) {
-                    check = false;
                     score++;
-                    break;
+                    check = false;
                 }
                 delete bullet;
                 bullet = nullptr;
+                break;
             }
 
             listBulletFromMainShip.push_back(bullet);

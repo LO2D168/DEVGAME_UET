@@ -60,5 +60,12 @@ inline void loadImg()
         SDL_Texture* pointerObj = loadTexture(alphabet[i], renderer);
         alphabetPointerToImg[i] = pointerObj;
     }
+
+    for (int i = 0; i < 4; i++) {
+        SDL_Texture* pointerObj = loadTexture(button[i], renderer);
+        buttonPointerImg[i] = pointerObj;
+    }
+    menuPointerImg = loadTexture(menuImage, renderer);
+    mousePointerImg = loadTexture(mouse, renderer);
 }
 #endif // _GameBoard__H

@@ -57,7 +57,6 @@ class combatText
     void getText()
     {
        text = dictionary[rand() % mod_vocal];
-    	text = "ab";
     }
 	void getStr(string& str) {
 	    text = str;
@@ -144,6 +143,8 @@ class combatText
 	    	SDL_RenderCopyF(renderer, tex, NULL, &Rect);
 	    }
     }
+
+	virtual ~combatText() = default;
 };
 
 #endif // _combatText__H

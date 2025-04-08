@@ -46,12 +46,12 @@ inline void fixedUpdateType7(deque<shipType7*> &listShipType7, deque<Bullet*> &l
 
             if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
                 if (ship->decHealth(bullet->getDamage())) {
-                    check = false;
                     score++;
-                    break;
+                    check = false;
                 }
                 delete bullet;
                 bullet = nullptr;
+                break;
             }
 
             listBulletFromMainShip.push_back(bullet);

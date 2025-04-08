@@ -54,7 +54,6 @@ inline void fixedUpdateType4(deque<shipType4*> &listShipType4, deque<Bullet*> &l
                 bullet = nullptr;
                 break;
             }
-
             listBulletFromMainShip.push_back(bullet);
         }
 

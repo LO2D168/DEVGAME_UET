@@ -163,6 +163,8 @@ public:
 
         return true;
     }
+
+    virtual ~Obj() = default;
 };
 
 #endif // _Objects__H

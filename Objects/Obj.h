@@ -31,10 +31,4 @@ void Render()
     SDL_RenderPresent(renderer);
 }
 
-void play() {
-    FixedUpdate();
-    ElapsedUpdate();
-    Render();
-}
-
 #endif // _Obj__H

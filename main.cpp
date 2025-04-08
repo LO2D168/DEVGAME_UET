@@ -1,9 +1,4 @@
-#include "GameSetup\GameBoard.h"
-#include "GameScene\Scence.h"
-#include "Objects\Obj.h"
-#include "Data\DataVocal.h"
-#include "Data\DataGame.h"
-
+#include ".\Menu\All.h"
 using namespace std;
 
 int WinMain(int argc, char* args[])
@@ -11,26 +6,25 @@ int WinMain(int argc, char* args[])
     if(!checkInit()) {
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
     }
-    else
-    {
-        if(!checkWindows()) printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError());
-        SDL_Event e;
+    else  if(!checkWindows()) printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError());
+    createWindows(); loadImg(); loadData(); loadScoreData();
 
-        createWindows(); loadImg(); loadData(); setupScroll(); score = 0;
-
-        mainObjCharc = new MainCharacter(MainCharacterIMG, mainSpeed, mainWidthObj, mainHeightObj);
-        idShip = 0;
-
-        while(mainObjCharc->getHealth())
-        {
-            timeFrame++;
-            if ( (SDL_PollEvent(&e) != 0) && (e.type == SDL_QUIT)) break;
-            play();
-
-            SDL_Delay(16);
+    SDL_ShowCursor(SDL_DISABLE);
+    SDL_Event e;
+    while (!((SDL_PollEvent(&e) != 0) && (e.type == SDL_QUIT))) {
+        int num = renderMenu(e);
+        if (num == 4) break;
+        switch (num) {
+            case 1: playButton(e);
+                break;
+            case 2: settingButton();
+                break;
+            case 3: turtorialButton();
+                break;
         }
-        closeWindows();
-        close();
     }
+    closeWindows();
+    close();
+
     return 0;
 }
