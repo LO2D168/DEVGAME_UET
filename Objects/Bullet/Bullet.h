@@ -24,7 +24,7 @@ public:
         widthObj = width;
         heightObj = height;
         speed = Speed;
-        damage = 1000;
+        damage = 1200;
 
         switch (type) {
             case 1:

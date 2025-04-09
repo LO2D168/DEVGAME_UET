@@ -6,14 +6,14 @@
 #include "SpaceShipFunction.h"
 #include "MateoriteFuntion.h"
 
-void FixedUpdate()
+inline void FixedUpdate()
 {
     meteoFixedUpdate();
     spaceShipFixedUpdate();
     MainFixedUpdate();
 }
 
-void ElapsedUpdate()
+inline void ElapsedUpdate()
 {
     meteoElapsedUpdate();
     spaceShipElapsedUpdate();
@@ -21,7 +21,7 @@ void ElapsedUpdate()
     MainElapsedUpdate();
 }
 
-void Render()
+inline void Render()
 {
     scroll();
     meteoRender();
@@ -30,5 +30,6 @@ void Render()
     MainRender();
     SDL_RenderPresent(renderer);
 }
+
 
 #endif // _Obj__H

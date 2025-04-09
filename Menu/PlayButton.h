@@ -21,7 +21,7 @@ void reset() {
     // mainObjCharc = nullptr;
     score = 0;
     timeFrame = 0;
-    timeForNewEvent = 0;
+    timeForNewEvent = meteoEventSpeed;
     timeForNewEventSpaceShip = 60;
 
     // clearDeque(listBulletFromOtherShip);
@@ -47,38 +47,50 @@ void reset() {
     while (listShipType7.size()) listShipType7.pop_back();
 }
 
-int pause() {
-
-    while (true) {
-        Render();
-        const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-        if (currentKeyStates[SDL_SCANCODE_ESCAPE]) return 1;
-        if (currentKeyStates[SDL_SCANCODE_SPACE]) return 2;
-        if (currentKeyStates[SDL_SCANCODE_RETURN]) return 3;
-    }
-}
-
 inline void playButton(SDL_Event &e) {
     setUp();
 
+    bool check = false;
     while(mainObjCharc->getHealth())
     {
         timeFrame++;
         if ( (SDL_PollEvent(&e) != 0) && (e.type == SDL_QUIT)) break;
-        FixedUpdate();
-        ElapsedUpdate();
+        if (!check) FixedUpdate(), ElapsedUpdate();
         Render();
+
+        if (check) {
+            SDL_Rect rect = {SCREEN_WIDTH/5, SCREEN_HEIGHT/5, SCREEN_WIDTH/5 * 3, SCREEN_HEIGHT/5 * 3};
+            SDL_RenderCopy(renderer, pausedPointerImg, NULL, &rect);
+            SDL_RenderPresent(renderer);
+        }
+
         SDL_Delay(16);
 
         const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-        int num = 0;
         if (currentKeyStates[SDL_SCANCODE_TAB]) {
-            num = pause();
+            check = true;
         }
 
-        if (num == 1) break;
-        if (num == 2) continue;
-        if (num == 3) reset();
+        if (check && currentKeyStates[SDL_SCANCODE_ESCAPE]) {
+            break;
+        }
+        if (check && currentKeyStates[SDL_SCANCODE_RETURN]) {
+            reset();
+            check = false;
+        }
+        if (check && currentKeyStates[SDL_SCANCODE_SPACE]) {
+            check = false;
+        }
+    }
+
+    int timeDelay = 100;
+
+    Render();
+    SDL_Rect rect = {SCREEN_WIDTH/5, SCREEN_HEIGHT/5, SCREEN_WIDTH/5 * 3, SCREEN_HEIGHT/5 * 3};
+    SDL_RenderCopy(renderer, endGamePointerImg, NULL, &rect);
+    SDL_RenderPresent(renderer);
+    while (timeDelay--) {
+        SDL_Delay(30);
     }
 
     updateScore(score);

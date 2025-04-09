@@ -104,7 +104,7 @@ class combatText
             if(postextX >= SCREEN_WIDTH - 300)
             {
                   postextX = startTextX;
-                  postextY += texH + 10;
+            	  if (i < text.size() - 1) postextY += texH + 10;
             }
             uY = max(uY, postextY + texH + 10);
         }

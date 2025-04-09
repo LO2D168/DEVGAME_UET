@@ -67,5 +67,7 @@ inline void loadImg()
     }
     menuPointerImg = loadTexture(menuImage, renderer);
     mousePointerImg = loadTexture(mouse, renderer);
+    pausedPointerImg = loadTexture(pausedImg, renderer);
+    endGamePointerImg = loadTexture(endGameImg, renderer);
 }
 #endif // _GameBoard__H

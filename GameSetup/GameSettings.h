@@ -16,7 +16,7 @@ inline int timeFrame = 0;
 
 inline const int mod_vocal = 25000;
 inline const int scroll_speed = 1;
-inline const char* gameTitle = "AstroType";
+inline const char* gameTitle = "TYPING ATTACK";
 
 //--------Main Val-------------
 inline const int mainSpeed = 5;
@@ -31,58 +31,58 @@ inline const int meteoHeight = 40;
 inline const int meteoWidth = 30;
 inline const int numMeteoImg = 4;
 inline const int meteoEventSpeed = 50;
-inline const char* meteoArray[] = {"C:/DevGame/image_source/p1.png",
-                            "C:/DevGame/image_source/p2.png",
-                            "C:/DevGame/image_source/p3.png",
-                            "C:/DevGame/image_source/p4.png"};
+inline const char* meteoArray[] = {"../image_source/p1.png",
+                            "../image_source/p2.png",
+                            "../image_source/p3.png",
+                            "../image_source/p4.png"};
 //-----------------------------
 
 //-----------Heart------------
 inline const int heathWidthObj = 40;
 inline const int heathHeightObj = 40;
-inline const char* linkToHeartImg = "C:/DevGame/image_source/heart.png";
+inline const char* linkToHeartImg = "../image_source/heart.png";
 inline SDL_Texture* pointerToHeartImg = NULL;
 //-----------------------------
 
 //-----------Text-------------------
 inline SDL_Texture* alphabetPointerToImg[26];
 inline SDL_Texture* digitPointerToImg[10];
-inline const char* alphabet[] = {"C:/DevGame/image_source/alphabet/A.png",
-                                "C:/DevGame/image_source/alphabet/B.png",
-                                "C:/DevGame/image_source/alphabet/C.png",
-                                "C:/DevGame/image_source/alphabet/D.png",
-                                "C:/DevGame/image_source/alphabet/E.png",
-                                "C:/DevGame/image_source/alphabet/F.png",
-                                "C:/DevGame/image_source/alphabet/G.png",
-                                "C:/DevGame/image_source/alphabet/H.png",
-                                "C:/DevGame/image_source/alphabet/I.png",
-                                "C:/DevGame/image_source/alphabet/J.png",
-                                "C:/DevGame/image_source/alphabet/K.png",
-                                "C:/DevGame/image_source/alphabet/L.png",
-                                "C:/DevGame/image_source/alphabet/M.png",
-                                "C:/DevGame/image_source/alphabet/N.png",
-                                "C:/DevGame/image_source/alphabet/O.png",
-                                "C:/DevGame/image_source/alphabet/P.png",
-                                "C:/DevGame/image_source/alphabet/Q.png",
-                                "C:/DevGame/image_source/alphabet/R.png",
-                                "C:/DevGame/image_source/alphabet/S.png",
-                                "C:/DevGame/image_source/alphabet/T.png",
-                                "C:/DevGame/image_source/alphabet/U.png",
-                                "C:/DevGame/image_source/alphabet/V.png",
-                                "C:/DevGame/image_source/alphabet/W.png",
-                                "C:/DevGame/image_source/alphabet/X.png",
-                                "C:/DevGame/image_source/alphabet/Y.png",
-                                "C:/DevGame/image_source/alphabet/Z.png",};
-inline const char* digit[] = {"C:/DevGame/image_source/digit/0.png",
-                                "C:/DevGame/image_source/digit/1.png",
-                                "C:/DevGame/image_source/digit/2.png",
-                                "C:/DevGame/image_source/digit/3.png",
-                                "C:/DevGame/image_source/digit/4.png",
-                                "C:/DevGame/image_source/digit/5.png",
-                                "C:/DevGame/image_source/digit/6.png",
-                                "C:/DevGame/image_source/digit/7.png",
-                                "C:/DevGame/image_source/digit/8.png",
-                                "C:/DevGame/image_source/digit/9.png",};
+inline const char* alphabet[] = {"../image_source/alphabet/A.png",
+                                "../image_source/alphabet/B.png",
+                                "../image_source/alphabet/C.png",
+                                "../image_source/alphabet/D.png",
+                                "../image_source/alphabet/E.png",
+                                "../image_source/alphabet/F.png",
+                                "../image_source/alphabet/G.png",
+                                "../image_source/alphabet/H.png",
+                                "../image_source/alphabet/I.png",
+                                "../image_source/alphabet/J.png",
+                                "../image_source/alphabet/K.png",
+                                "../image_source/alphabet/L.png",
+                                "../image_source/alphabet/M.png",
+                                "../image_source/alphabet/N.png",
+                                "../image_source/alphabet/O.png",
+                                "../image_source/alphabet/P.png",
+                                "../image_source/alphabet/Q.png",
+                                "../image_source/alphabet/R.png",
+                                "../image_source/alphabet/S.png",
+                                "../image_source/alphabet/T.png",
+                                "../image_source/alphabet/U.png",
+                                "../image_source/alphabet/V.png",
+                                "../image_source/alphabet/W.png",
+                                "../image_source/alphabet/X.png",
+                                "../image_source/alphabet/Y.png",
+                                "../image_source/alphabet/Z.png",};
+inline const char* digit[] = {"../image_source/digit/0.png",
+                                "../image_source/digit/1.png",
+                                "../image_source/digit/2.png",
+                                "../image_source/digit/3.png",
+                                "../image_source/digit/4.png",
+                                "../image_source/digit/5.png",
+                                "../image_source/digit/6.png",
+                                "../image_source/digit/7.png",
+                                "../image_source/digit/8.png",
+                                "../image_source/digit/9.png",};
 inline const float widthText = 30;
 inline const float heightText = 40;
 inline const float startTextX = 30;
@@ -100,31 +100,31 @@ const int numBulletTyp2 = 3;
 const int numBulletTyp3 = 2;
 
 inline const char* bulletArray[] ={
-    "C:/DevGame/image_source/mainBullet1.png",
-    "C:/DevGame/image_source/mainBullet2.png",
-    "C:/DevGame/image_source/mainBullet3.png",
-    "C:/DevGame/image_source/mainBullet4.png",
-    "C:/DevGame/image_source/bulletType1_1.png",
-    "C:/DevGame/image_source/bulletType1_2.png",
-    "C:/DevGame/image_source/bulletType1_3.png",
-    "C:/DevGame/image_source/bulletType1_4.png",
-    "C:/DevGame/image_source/bulletType2_1.png",
-    "C:/DevGame/image_source/bulletType2_2.png",
-    "C:/DevGame/image_source/bulletType2_3.png",
-    "C:/DevGame/image_source/bulletType3_1.png",
-    "C:/DevGame/image_source/bulletType3_2.png",
+    "../image_source/mainBullet1.png",
+    "../image_source/mainBullet2.png",
+    "../image_source/mainBullet3.png",
+    "../image_source/mainBullet4.png",
+    "../image_source/bulletType1_1.png",
+    "../image_source/bulletType1_2.png",
+    "../image_source/bulletType1_3.png",
+    "../image_source/bulletType1_4.png",
+    "../image_source/bulletType2_1.png",
+    "../image_source/bulletType2_2.png",
+    "../image_source/bulletType2_3.png",
+    "../image_source/bulletType3_1.png",
+    "../image_source/bulletType3_2.png",
 };
 //----------------------------------
 //---------SpaceShip-----------
 inline const int numTypeSpaceShip = 7;
 inline const char* linkToSpaceShip[] ={
-        "C:/DevGame/image_source/Example_ships/3B.png",
-        "C:/DevGame/image_source/Example_ships/4.png",
-        "C:/DevGame/image_source/Example_ships/5B.png",
-        "C:/DevGame/image_source/Example_ships/6B.png",
-        "C:/DevGame/image_source/Example_ships/8.png",
-        "C:/DevGame/image_source/Example_ships/9.png",
-        "C:/DevGame/image_source/Example_ships/10B.png",
+        "../image_source/Example_ships/3B.png",
+        "../image_source/Example_ships/4.png",
+        "../image_source/Example_ships/5B.png",
+        "../image_source/Example_ships/6B.png",
+        "../image_source/Example_ships/8.png",
+        "../image_source/Example_ships/9.png",
+        "../image_source/Example_ships/10B.png",
 };
 inline vector<SDL_Texture*> listImgSpaceShip;
 const int widthShipType1 = 40;
@@ -151,19 +151,23 @@ inline SDL_Texture* pointerBackground = NULL;
 
 //----------Link img--------------------------
 inline const char* background = "../image_source/background.png";
-inline const char* MainCharacterIMG = "C:/DevGame/image_source/Example_ships/1.png";
+inline const char* MainCharacterIMG = "../image_source/Example_ships/1.png";
 //--------------------------------------------
 
 //------------------Menu----------------------
-inline const char* menuImage = "C:/DevGame/image_source/Menu/menuImage/backgroundMenu.png";
-inline const char* button[] = {"C:/DevGame/image_source/Menu/menuImage/play.png",
-                        "C:/DevGame/image_source/Menu/menuImage/setting.png",
-                        "C:/DevGame/image_source/Menu/menuImage/tutorial.png",
-                        "C:/'DevGame/image_source/Menu/menuImage/exitf.png",};
-inline const char* mouse = "C:/DevGame/image_source/Menu/mouse.png";
+inline const char* menuImage = "../image_source/Menu/menuImage/backgroundMenu.png";
+inline const char* button[] = {"../image_source/Menu/menuImage/play.png",
+                        "../image_source/Menu/menuImage/setting.png",
+                        "../image_source/Menu/menuImage/tutorial.png",
+                        "../image_source/Menu/menuImage/rty.png",};
+inline const char* mouse = "../image_source/Menu/mouse.png";
+inline const char* pausedImg = "../image_source/Menu/playButton/PauseImg.png";
+inline const char* endGameImg = "../image_source/Menu/playButton/EndGameImg.png";
 inline SDL_Texture* buttonPointerImg[4];
 inline SDL_Texture* menuPointerImg;
 inline SDL_Texture* mousePointerImg;
+inline SDL_Texture* pausedPointerImg;
+inline SDL_Texture* endGamePointerImg;
 //--------------------------------------------
 
 
