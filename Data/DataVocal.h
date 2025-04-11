@@ -3,7 +3,7 @@
 
 inline vector<string> dictionary;
 inline void loadData() {
-       freopen("dictionary.txt","r",stdin);
+       freopen("../Data/dictionary.txt","r",stdin);
        string s;
        for (int i = 0; i < mod_vocal; i++) {
               cin >> s;
