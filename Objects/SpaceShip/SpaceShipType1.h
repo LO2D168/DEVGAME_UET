@@ -34,6 +34,7 @@ inline void fixedUpdateType1(deque<shipType1*> &listShipType1, deque<Bullet*> &l
 
             if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
                 if (ship->decHealth(bullet->getDamage())) {
+                    Mix_PlayChannel(-1, shipExplore, 0);
                     score++;
                     check = false;
                 }

@@ -89,7 +89,20 @@ inline void playButton(SDL_Event &e) {
     SDL_Rect rect = {SCREEN_WIDTH/5, SCREEN_HEIGHT/5, SCREEN_WIDTH/5 * 3, SCREEN_HEIGHT/5 * 3};
     SDL_RenderCopy(renderer, endGamePointerImg, NULL, &rect);
     SDL_RenderPresent(renderer);
+
+    SDL_Color color = {255, 255, 255, 255};
+    string num = to_string(score);
+    SDL_Texture* Text = renderText(num.c_str(), font, color);
+    float width = SCREEN_WIDTH, height = SCREEN_HEIGHT;
+    int posX = width/5 +  (512.00 / 1024.00)*(width * 3.00 /5.00);
+    int posY = height/5 + (950.00 / 1536.00)*(height * 3.00 / 5.00);
+    renderTextQ(Text, posX, posY, 1);
+
+    Mix_PlayChannel(-1, TransButton, 0);
     while (timeDelay--) {
+        if ((SDL_PollEvent(&e) != 0) && (e.type == SDL_QUIT)) break;
+        const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+        if (currentKeyStates[SDL_SCANCODE_SPACE]) break;
         SDL_Delay(30);
     }
 

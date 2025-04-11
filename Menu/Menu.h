@@ -1,9 +1,7 @@
 #ifndef _Menu__H
 #define _Menu__H
 
-#include "SettingButton.h"
 #include "GameSetup/GameBoard.h"
-#include "TurtorialButton.h"
 #include "GameScene/Scence.h"
 #include "Objects/Obj.h"
 #include "Data/DataVocal.h"
@@ -67,7 +65,6 @@ inline int renderMenu(SDL_Event &e)
     int num = 5;
     SDL_Rect Rect = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     SDL_RenderCopy(renderer, menuPointerImg, NULL, &Rect);
-
     int mouseX, mouseY;
     SDL_GetMouseState(&mouseX, &mouseY);
 
@@ -94,6 +91,7 @@ inline int renderMenu(SDL_Event &e)
 
     Rect = {mouseX, mouseY, 30, 30};
     SDL_RenderCopy(renderer, mousePointerImg, NULL, &Rect);
+
 
     SDL_RenderPresent(renderer);
 

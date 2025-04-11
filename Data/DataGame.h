@@ -5,8 +5,8 @@ inline vector<int> scoreList;
 
 inline void loadScoreData() {
     scoreList.clear();
-    freopen("C:/DevGame/Data/gameScore.txt", "r", stdin);
-    for (int i = 1; i <= 10; i++) {
+    freopen("gameScore.txt", "r", stdin);
+    for (int i = 1; i <= 20; i++) {
         int num;
         cin >> num;
     }
@@ -16,7 +16,7 @@ inline void loadScoreData() {
 }
 
 inline void updateScore(int num) {
-    freopen("C:/DevGame/Data/gameScore.txt", "w", stdout);
+    freopen("gameScore.txt", "w", stdout);
     scoreList.push_back(num);
     sort(scoreList.begin(), scoreList.end(), greater<>());
     while (scoreList.size() < 20) {scoreList.push_back(0);}

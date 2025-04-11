@@ -32,6 +32,7 @@ inline void MainFixedUpdate()
     {
         if(mainObjCharc->checkCollisionObject(c))
         {
+            Mix_PlayChannel(-1, mainExplore, 0);
             var();
             return;
         }
@@ -42,7 +43,9 @@ inline void MainFixedUpdate()
         auto ship = listShipType1.front();
         listShipType1.pop_front();
         if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
+            Mix_PlayChannel(-1, mainExplore, 0);
             delete ship;
+            ship = NULL;
             var();
             return;
         }
@@ -54,7 +57,9 @@ inline void MainFixedUpdate()
         auto ship = listShipType2.front();
         listShipType2.pop_front();
         if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
+            Mix_PlayChannel(-1, mainExplore, 0);
             delete ship;
+            ship = NULL;
             var();
             return;
         }
@@ -66,7 +71,9 @@ inline void MainFixedUpdate()
         auto ship = listShipType3.front();
         listShipType3.pop_front();
         if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
+            Mix_PlayChannel(-1, mainExplore, 0);
             var(); delete ship;
+            ship = NULL;
             return;
         }
         listShipType3.push_back(ship);
@@ -77,7 +84,9 @@ inline void MainFixedUpdate()
         auto ship = listShipType4.front();
         listShipType4.pop_front();
         if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
+            Mix_PlayChannel(-1, mainExplore, 0);
             var(); delete ship;
+            ship = NULL;
             return;
         }
         listShipType4.push_back(ship);
@@ -88,7 +97,9 @@ inline void MainFixedUpdate()
         auto ship = listShipType5.front();
         listShipType5.pop_front();
         if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
+            Mix_PlayChannel(-1, mainExplore, 0);
             var(); delete ship;
+            ship = NULL;
             return;
         }
         listShipType5.push_back(ship);
@@ -99,7 +110,9 @@ inline void MainFixedUpdate()
         auto ship = listShipType6.front();
         listShipType6.pop_front();
         if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
+            Mix_PlayChannel(-1, mainExplore, 0);
             var(); delete ship;
+            ship = NULL;
             return;
         }
         listShipType6.push_back(ship);
@@ -110,7 +123,9 @@ inline void MainFixedUpdate()
         auto ship = listShipType7.front();
         listShipType7.pop_front();
         if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
+            Mix_PlayChannel(-1, mainExplore, 0);
             var(); delete ship;
+            ship = NULL;
             return;
         }
         listShipType7.push_back(ship);
@@ -121,7 +136,9 @@ inline void MainFixedUpdate()
         auto bullet = listBulletFromOtherShip.front();
         listBulletFromOtherShip.pop_front();
         if (mainObjCharc->checkCollision(bullet->getPosX(), bullet->getPosY(), bullet->getWidthObj(), bullet->getHeightObj(), bullet->getAngle())) {
+            Mix_PlayChannel(-1, mainExplore, 0);
             var(); delete bullet;
+            bullet = NULL;
             return;
         }
         listBulletFromOtherShip.push_back(bullet);
@@ -139,29 +156,6 @@ inline void MainElapsedUpdate()
         mainObjCharc->changePointerObj(loadTexture(mainObjCharc->getLinkImg(), renderer));
         mainObjCharc->changInitObj(false);
     }
-
-
-    // const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-    // if (currentKeyStates[SDL_SCANCODE_SPACE] && (timeFrame % 5 == 0)) {
-    //     tuple<float, float, float> res(1e9, SCREEN_WIDTH/2, 0);
-    //
-    //     res = findNearestType1(res, listShipType1, mainObjCharc);
-    //     res = findNearestType2(res, listShipType2, mainObjCharc);
-    //     res = findNearestType3(res, listShipType3, mainObjCharc);
-    //     res = findNearestType4(res, listShipType4, mainObjCharc);
-    //     res = findNearestType5(res, listShipType5, mainObjCharc);
-    //     res = findNearestType6(res, listShipType6, mainObjCharc);
-    //     res = findNearestType7(res, listShipType7, mainObjCharc);
-    //
-    //     float targetX  = get<1>(res);
-    //     float targetY  = get<2>(res);
-    //
-    //     mainObjCharc->getDirectionToTarget(targetX, targetY);
-    //     Bullet* bullet = new Bullet(10, mainObjCharc->getPosX() + mainWidthObj/2 - 10, mainObjCharc->getPosY(), widthBullet, heightBullet, 4);
-    //     bullet->changeDirection(targetX, targetY);
-    //     listBulletFromMainShip.push_back(bullet);
-    //     mainObjCharc->getDirectionToTarget(targetX, targetY);
-    // }
 
     mainObjCharc->getWord();
     if (mainObjCharc->getCheckWord() == true &&
@@ -183,6 +177,7 @@ inline void MainElapsedUpdate()
         mainObjCharc->getDirectionToTarget(targetX, targetY);
         Bullet* bullet = new Bullet(10, mainObjCharc->getPosX() + mainWidthObj/2 - 10, mainObjCharc->getPosY(), widthBullet, heightBullet, 4);
         bullet->changeDirection(targetX, targetY);
+        Mix_PlayChannel(-1, mainShoot, 0);
         listBulletFromMainShip.push_back(bullet);
         mainObjCharc->getDirectionToTarget(targetX, targetY);
     }

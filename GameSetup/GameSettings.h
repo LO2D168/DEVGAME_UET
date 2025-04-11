@@ -17,6 +17,8 @@ inline int timeFrame = 0;
 inline const int mod_vocal = 25000;
 inline const int scroll_speed = 1;
 inline const char* gameTitle = "TYPING ATTACK";
+inline int volObj = 64, volBack = 64, levelGame = 0;
+inline const int constVolObj = 128, constVolBack = 128, constLevelGame = 150;
 
 //--------Main Val-------------
 inline const int mainSpeed = 5;
@@ -83,6 +85,8 @@ inline const char* digit[] = {"../image_source/digit/0.png",
                                 "../image_source/digit/7.png",
                                 "../image_source/digit/8.png",
                                 "../image_source/digit/9.png",};
+inline const char* specSynImg = "../image_source/alphabet/specSync.png";
+inline SDL_Texture* specSync = NULL;
 inline const float widthText = 30;
 inline const float heightText = 40;
 inline const float startTextX = 30;
@@ -163,14 +167,34 @@ inline const char* button[] = {"../image_source/Menu/menuImage/play.png",
 inline const char* mouse = "../image_source/Menu/mouse.png";
 inline const char* pausedImg = "../image_source/Menu/playButton/PauseImg.png";
 inline const char* endGameImg = "../image_source/Menu/playButton/EndGameImg.png";
+inline const char* turtorial = "../image_source/Menu/Turtorial/turtorial.png";
+inline const char* scoreBoard = "../image_source/Menu/Turtorial/scoreBoard.png";
+inline const char* backgroundSetting = "../image_source/Menu/settingButton/Background.png";
+inline const char* sliderImg = "../image_source/Menu/settingButton/slider.png";
+inline const char* sliderButtonImg = "../image_source/Menu/settingButton/sliderButton.png";
+inline const char* back2Img = "../image_source/Menu/settingButton/back2.png";
 inline SDL_Texture* buttonPointerImg[4];
 inline SDL_Texture* menuPointerImg;
 inline SDL_Texture* mousePointerImg;
 inline SDL_Texture* pausedPointerImg;
 inline SDL_Texture* endGamePointerImg;
+inline SDL_Texture* turtorialPointerImg;
+inline SDL_Texture* scoreBoardPointerImg;
+inline SDL_Texture* backgroundSettingPointerImg;
+inline SDL_Texture* sliderPointerImg;
+inline SDL_Texture* sliderButtonPointerImg;
+inline SDL_Texture* back2PointerImg;
 //--------------------------------------------
 
-
+//----------------Music-----------------------
+inline Mix_Music* soundBackground;
+inline Mix_Music* soundPlay;
+inline Mix_Chunk* shipShoot;
+inline Mix_Chunk* shipExplore;
+inline Mix_Chunk* mainShoot;
+inline Mix_Chunk* mainExplore;
+inline Mix_Chunk* TransButton;
+//--------------------------------------------
 //----------------Font------------------------
 inline TTF_Font *font = NULL;
 //--------------------------------------------
@@ -234,6 +258,43 @@ bool checkInit()
         return false;
     }
 
+    soundBackground = Mix_LoadMUS("../sound_source/StarWars.mp3");
+    if (!soundBackground) {
+        std::cerr << "Failed to load music background: " << Mix_GetError() << "\n";
+        return false;
+    }
+
+    soundPlay = Mix_LoadMUS("../sound_source/March.mp3");
+    if (!soundPlay) {
+        std::cerr << "Failed to load music play part: " << Mix_GetError() << "\n";
+        return false;
+    }
+
+    mainShoot = Mix_LoadWAV("../sound_source/MainShoot.wav");
+    if (!mainShoot) {
+        std::cerr << "Failed to load mainShoot part: " << Mix_GetError() << "\n";
+    }
+
+    shipShoot = Mix_LoadWAV("../sound_source/ShipShoot.wav");
+    if (!shipShoot) {
+        std::cerr << "Failed to load shipShoot part: " << Mix_GetError() << "\n";
+    }
+
+    mainExplore = Mix_LoadWAV("../sound_source/MainExplore.wav");
+    if (!mainExplore) {
+        std::cerr << "Failed to load mainExplore part: " << Mix_GetError() << "\n";
+    }
+
+    shipExplore = Mix_LoadWAV("../sound_source/ShipExplore.wav");
+    if (!shipExplore) {
+        std::cerr << "Failed to load shipExplore part: " << Mix_GetError() << "\n";
+    }
+
+    TransButton = Mix_LoadWAV("../sound_source/TransButton.wav");
+    if (!TransButton) {
+        std::cerr << "Failed to load TransButton part: " << Mix_GetError() << "\n";
+    }
+
     return true;
 }
 
@@ -258,8 +319,16 @@ inline void close()
     SDL_FreeSurface(screenSurface);
     screenSurface= NULL;
     TTF_CloseFont(font);
+    SDL_DestroyRenderer(renderer);
 
     //Quit SDL subsystems
+    Mix_FreeMusic(soundBackground);
+    Mix_FreeMusic(soundPlay);
+    Mix_FreeChunk(mainShoot);
+    Mix_FreeChunk(mainExplore);
+    Mix_FreeChunk(TransButton);
+    Mix_FreeChunk(shipExplore);
+    Mix_FreeChunk(shipShoot);
     Mix_Quit();
     IMG_Quit();
     SDL_Quit();

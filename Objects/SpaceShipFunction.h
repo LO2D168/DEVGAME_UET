@@ -5,7 +5,7 @@
 #include "../GameSetup/GameBoard.h"
 
 inline int timeForNewEventSpaceShip = 60;
-inline int speedSpaecshipEvent = 300 - levelGame;
+inline int speedSpaecshipEvent = 300;
 
 inline void spaceShipFixedUpdate() {
 
@@ -19,7 +19,7 @@ inline void spaceShipFixedUpdate() {
 }
 
 inline void spaceShipElapsedUpdate() {
-
+    speedSpaecshipEvent = 300 - levelGame;
     if(timeFrame == timeForNewEventSpaceShip)
     {
         timeForNewEventSpaceShip += rand() % speedSpaecshipEvent + speedSpaecshipEvent;

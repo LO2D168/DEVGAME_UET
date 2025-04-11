@@ -13,20 +13,16 @@ inline vector<SDL_Texture*> listPointerBulletType1;
 inline vector<SDL_Texture*> listPointerBulletType2;
 inline vector<SDL_Texture*> listPointerBulletType3;
 
-inline int levelGame = 0;
-
 inline void loadImg()
 {
-    for(int i = 0; i < numMeteoImg; i++)
-    {
+    for(int i = 0; i < numMeteoImg; i++) {
         SDL_Texture* pointerObj = loadTexture(meteoArray[i], renderer);
         listPointerMeteo.push_back(pointerObj);
     }
 
     pointerToHeartImg = loadTexture(linkToHeartImg, renderer);
 
-    for(int i = 0; i < numTypeSpaceShip; i++)
-    {
+    for(int i = 0; i < numTypeSpaceShip; i++) {
         SDL_Texture* pointerObj = loadTexture(linkToSpaceShip[i], renderer);
         listImgSpaceShip.push_back(pointerObj);
     }
@@ -65,9 +61,22 @@ inline void loadImg()
         SDL_Texture* pointerObj = loadTexture(button[i], renderer);
         buttonPointerImg[i] = pointerObj;
     }
+
     menuPointerImg = loadTexture(menuImage, renderer);
     mousePointerImg = loadTexture(mouse, renderer);
     pausedPointerImg = loadTexture(pausedImg, renderer);
     endGamePointerImg = loadTexture(endGameImg, renderer);
+    turtorialPointerImg = loadTexture(turtorial, renderer);
+    scoreBoardPointerImg = loadTexture(scoreBoard, renderer);
+    backgroundSettingPointerImg = loadTexture(backgroundSetting, renderer);
+    sliderPointerImg = loadTexture(sliderImg, renderer);
+    sliderButtonPointerImg = loadTexture(sliderButtonImg, renderer);
+    back2PointerImg = loadTexture(back2Img, renderer);
+    specSync = loadTexture(specSynImg, renderer);
+    font = loadFont("../font/FiraCode-Bold.ttf",50);
+
+    if (font == NULL) {
+        printf("font can't be loaded: %s\n", IMG_GetError());
+    }
 }
 #endif // _GameBoard__H

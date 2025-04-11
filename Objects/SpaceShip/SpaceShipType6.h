@@ -36,6 +36,7 @@ public:
 
 
     Bullet* getBullet() {
+        Mix_PlayChannel(-1, shipShoot, 0);
         Bullet* newBullet = new Bullet(speedBulletMid, posX +  widthObj/2, posY + heightObj/2, widthBullet, heightBullet,2);
         return newBullet;
     }
@@ -57,6 +58,7 @@ inline void fixedUpdateType6(deque<shipType6*> &listShipType6, deque<Bullet*> &l
 
             if (ship->checkCollision(bullet->getPosX(), bullet->getPosY(), widthBullet, heightBullet, bullet->getAngle())) {
                 if (ship->decHealth(bullet->getDamage())) {
+                    Mix_PlayChannel(-1, shipExplore, 0);
                     score++;
                     check = false;
                 }

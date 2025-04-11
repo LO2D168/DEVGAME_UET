@@ -1,7 +1,7 @@
 CMakeFiles\DevGame.dir\main.cpp.obj.ddi: C:/DevGame/main.cpp \
  C:/DevGame/Menu/All.h C:/DevGame/Menu/PlayButton.h \
- C:/DevGame/Menu/Menu.h C:/DevGame/Menu/SettingButton.h \
- C:/DevGame/GameSetup/GameBoard.h C:/DevGame/GameSetup/GameSettings.h \
+ C:/DevGame/Menu/Menu.h C:/DevGame/GameSetup/GameBoard.h \
+ C:/DevGame/GameSetup/GameSettings.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/x86_64-w64-mingw32/bits/stdc++.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/cassert \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -529,14 +529,13 @@ CMakeFiles\DevGame.dir\main.cpp.obj.ddi: C:/DevGame/main.cpp \
  C:/DevGame/SDL2-2.26.0/x86_64-w64-mingw32/include/SDL2/SDL_version.h \
  C:/DevGame/SDL2_image-2.8.8/x86_64-w64-mingw32/include/SDL2/SDL_image.h \
  C:/DevGame/GameSetup/FuncSettings.h C:/DevGame/GameSetup/Objects.h \
- C:/DevGame/Menu/TurtorialButton.h C:/DevGame/GameScene/Scence.h \
- C:/DevGame/GameScene/Background.h C:/DevGame/GameSetup/GameBoard.h \
- C:/DevGame/Objects/Obj.h C:/DevGame/Objects/BulletFunction.h \
- C:/DevGame/Objects/SetObj.h C:/DevGame/Objects/MainObj/MainObj.h \
- C:/DevGame/Objects/MainObj/heart.h C:/DevGame/GameSetup/GameBoard.h \
- C:/DevGame/Objects/MainObj/combatText.h C:/DevGame/Objects/SetObj.h \
- C:/DevGame/Data/DataVocal.h C:/DevGame/GameSetup/Objects.h \
- C:/DevGame/GameSetup/GameSettings.h \
+ C:/DevGame/GameScene/Scence.h C:/DevGame/GameScene/Background.h \
+ C:/DevGame/GameSetup/GameBoard.h C:/DevGame/Objects/Obj.h \
+ C:/DevGame/Objects/BulletFunction.h C:/DevGame/Objects/SetObj.h \
+ C:/DevGame/Objects/MainObj/MainObj.h C:/DevGame/Objects/MainObj/heart.h \
+ C:/DevGame/GameSetup/GameBoard.h C:/DevGame/Objects/MainObj/combatText.h \
+ C:/DevGame/Objects/SetObj.h C:/DevGame/Data/DataVocal.h \
+ C:/DevGame/GameSetup/Objects.h C:/DevGame/GameSetup/GameSettings.h \
  C:/DevGame/Objects/Meteorite/Meteorite.h \
  C:/DevGame/GameSetup/GameBoard.h \
  C:/DevGame/Objects/SpaceShip/SpaceShip.h \
@@ -553,4 +552,5 @@ CMakeFiles\DevGame.dir\main.cpp.obj.ddi: C:/DevGame/main.cpp \
  C:/DevGame/Objects/Bullet/Bullet.h C:/DevGame/Objects/MainFunction.h \
  C:/DevGame/Objects/SpaceShipFunction.h C:/DevGame/GameSetup/GameBoard.h \
  C:/DevGame/Objects/MateoriteFuntion.h C:/DevGame/Data/DataVocal.h \
- C:/DevGame/Data/DataGame.h
+ C:/DevGame/Data/DataGame.h C:/DevGame/Menu/TurtorialButton.h \
+ C:/DevGame/Menu/SettingButton.h

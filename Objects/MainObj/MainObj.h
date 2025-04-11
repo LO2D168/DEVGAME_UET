@@ -67,7 +67,7 @@ public:
             tmp /= 10;
             num.push_back(digitZ + '0');
         }
-
+        reverse(num.begin(), num.end());
         text += num;
         renderTextRand(text, SCREEN_WIDTH, 50);
     }

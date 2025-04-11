@@ -4,7 +4,8 @@ set(CMAKE_CXX_STANDARD 20)
 
 # Must set the path to the main.cpp, for example: scripts/main.cpp if it is inside a folder
 add_executable(${PROJECT_NAME} main.cpp
-        Objects/Obj.h)
+        Objects/Obj.h
+)
 
 # --- SDL2 SETUP ---
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)

@@ -57,8 +57,9 @@ class combatText
     void getText()
     {
        text = dictionary[rand() % mod_vocal];
+    	//text = "ab";
     }
-	void getStr(string& str) {
+	void getStr(string &str) {
 	    text = str;
     }
 
@@ -85,10 +86,8 @@ class combatText
 		return textEnd;
 	}
 
-   	void renderText()
+   	void renderText(float postextX = startTextX, float postextY = startTextY)
     {
-        float postextX = startTextX;
-        float postextY = startTextY;
         float uY = postextY;
 
 		for(int i = 0; i < text.size(); i++)
@@ -123,21 +122,25 @@ class combatText
         }
 	}
 
-	void renderTextRand(string s, float qx, float qy) {
+	void renderTextRand(string s, float qx, float qy, const int size = 6, const int sizeh = 2) {
     	reverse(s.begin(), s.end());
 	    for (auto c: s) {
 		    SDL_Texture *tex = NULL;
 	    	if ('0' <= c && c <= '9') {tex = digitPointerToImg[c - '0'];}
 	    	else if ('a' <= c && c <= 'z') {tex = alphabetPointerToImg[c - 'a'];}
+	    	else if (c == ':')  {tex = specSync;}
 	    	else { qx -= 10; continue;}
 
 
 	    	int texW = 0;
 	    	int texH = 0;
 	    	SDL_QueryTexture(tex, NULL, NULL, &texW, &texH);
-	    	texW /= 6;
-	    	texH = heightText / 2;
+	    	texW /= size;
+	    	texH = heightText / sizeh;
 
+	    	if (tex == specSync) {
+	    		texW = 15;
+	    	}
 	    	qx -= texW + 3;
 	    	SDL_FRect Rect = {qx, qy, float(texW), float(texH)};
 	    	SDL_RenderCopyF(renderer, tex, NULL, &Rect);
