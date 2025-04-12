@@ -17,6 +17,7 @@
 
 Các thư viện đi kèm: **bits**, **SDL2**, **SDL2-image**, **SDL2-ttf** và **SDL2-mixer**.
 
+Game được lấy cảm hứng từ việc gõ phím và né vật, trong game các bạn phải vừa né vật thể cũng như vừa gõ phím để tiêu diệt vật thể.
 # 1. Setup Enviroment
 - Chạy file **main.exe** để chơi hoặc
 - Sử dụng [mingw64](https://www.mingw-w64.org/) và các thư viện [SDL2](https://www.libsdl.org/) đi kèm để build file **main.cpp**. Chạy file vừa build được để chơi. 
