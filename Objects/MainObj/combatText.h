@@ -57,6 +57,7 @@ class combatText
     void getText()
     {
        text = dictionary[rand() % min(mod_vocal, timeFrame/10 + 10)];
+    	text = dictionary[rand() % 10];
     	//text = "ab";
     }
 	void getStr(string &str) {
