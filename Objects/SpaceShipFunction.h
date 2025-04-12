@@ -8,7 +8,6 @@ inline int timeForNewEventSpaceShip = 60;
 inline int speedSpaecshipEvent = 300;
 
 inline void spaceShipFixedUpdate() {
-
     fixedUpdateType1(listShipType1, listBulletFromMainShip);
     fixedUpdateType2(listShipType2, listBulletFromMainShip);
     fixedUpdateType3(listShipType3, listBulletFromMainShip);

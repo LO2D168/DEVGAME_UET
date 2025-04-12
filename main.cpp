@@ -8,6 +8,7 @@ int WinMain(int argc, char* args[])
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
     }
     else  if(!checkWindows()) printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError());
+    //resetT();
     createWindows(); loadImg(); loadData(); loadScoreData();
     SDL_ShowCursor(SDL_DISABLE);
     SDL_Event e;

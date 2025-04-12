@@ -14,11 +14,12 @@ inline int SCREEN_WIDTH;
 inline int SCREEN_HEIGHT;
 inline int timeFrame = 0;
 
-inline const int mod_vocal = 25000;
+inline const int mod_vocal = 1056;
 inline const int scroll_speed = 1;
 inline const char* gameTitle = "TYPING ATTACK";
 inline int volObj = 64, volBack = 64, levelGame = 0;
 inline const int constVolObj = 128, constVolBack = 128, constLevelGame = 150;
+inline SDL_Surface* icon;
 
 //--------Main Val-------------
 inline const int mainSpeed = 5;
@@ -295,6 +296,13 @@ bool checkInit()
         std::cerr << "Failed to load TransButton part: " << Mix_GetError() << "\n";
     }
 
+    icon = IMG_Load("../image_source/logo.png");
+    if (!icon) {
+        SDL_Log("Failed to load icon: %s", IMG_GetError());
+        return false;
+    }
+    SDL_SetWindowIcon(window, icon);
+
     return true;
 }
 
@@ -322,6 +330,7 @@ inline void close()
     SDL_DestroyRenderer(renderer);
 
     //Quit SDL subsystems
+    SDL_FreeSurface(icon);
     Mix_FreeMusic(soundBackground);
     Mix_FreeMusic(soundPlay);
     Mix_FreeChunk(mainShoot);

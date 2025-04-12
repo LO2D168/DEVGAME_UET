@@ -20,6 +20,22 @@ inline void MainRender()
     mainObjCharc->renderHeart(mainObjCharc->getHealth());
 }
 
+void checkShip(auto &listShip) {
+    int siz = listShip.size();
+    for (int i = 0; i < siz; i++) {
+        auto ship = listShip.front();
+        listShip.pop_front();
+        if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
+            Mix_PlayChannel(-1, mainExplore, 0);
+            delete ship;
+            ship = NULL;
+            var();
+            return;
+        }
+        listShip.push_back(ship);
+    }
+}
+
 inline void MainFixedUpdate()
 {
     if(mainObjCharc->penalty)
@@ -38,100 +54,15 @@ inline void MainFixedUpdate()
         }
     }
 
-    int siz = listShipType1.size();
-    for (int i = 0; i < siz; i++) {
-        auto ship = listShipType1.front();
-        listShipType1.pop_front();
-        if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
-            Mix_PlayChannel(-1, mainExplore, 0);
-            delete ship;
-            ship = NULL;
-            var();
-            return;
-        }
-        listShipType1.push_back(ship);
-    }
+    checkShip(listShipType1);
+    checkShip(listShipType2);
+    checkShip(listShipType3);
+    checkShip(listShipType4);
+    checkShip(listShipType5);
+    checkShip(listShipType6);
+    checkShip(listShipType7);
 
-    siz = listShipType2.size();
-    for (int i = 0; i < siz; i++) {
-        auto ship = listShipType2.front();
-        listShipType2.pop_front();
-        if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
-            Mix_PlayChannel(-1, mainExplore, 0);
-            delete ship;
-            ship = NULL;
-            var();
-            return;
-        }
-        listShipType2.push_back(ship);
-    }
-
-    siz = listShipType3.size();
-    for (int i = 0; i < siz; i++) {
-        auto ship = listShipType3.front();
-        listShipType3.pop_front();
-        if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
-            Mix_PlayChannel(-1, mainExplore, 0);
-            var(); delete ship;
-            ship = NULL;
-            return;
-        }
-        listShipType3.push_back(ship);
-    }
-
-    siz = listShipType4.size();
-    for (int i = 0; i < siz; i++) {
-        auto ship = listShipType4.front();
-        listShipType4.pop_front();
-        if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
-            Mix_PlayChannel(-1, mainExplore, 0);
-            var(); delete ship;
-            ship = NULL;
-            return;
-        }
-        listShipType4.push_back(ship);
-    }
-
-    siz = listShipType5.size();
-    for (int i = 0; i < siz; i++) {
-        auto ship = listShipType5.front();
-        listShipType5.pop_front();
-        if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
-            Mix_PlayChannel(-1, mainExplore, 0);
-            var(); delete ship;
-            ship = NULL;
-            return;
-        }
-        listShipType5.push_back(ship);
-    }
-
-    siz = listShipType6.size();
-    for (int i = 0; i < siz; i++) {
-        auto ship = listShipType6.front();
-        listShipType6.pop_front();
-        if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
-            Mix_PlayChannel(-1, mainExplore, 0);
-            var(); delete ship;
-            ship = NULL;
-            return;
-        }
-        listShipType6.push_back(ship);
-    }
-
-    siz = listShipType7.size();
-    for (int i = 0; i < siz; i++) {
-        auto ship = listShipType7.front();
-        listShipType7.pop_front();
-        if (mainObjCharc->checkCollision(ship->getPosX(), ship->getPosY(), ship->getWidthObj(), ship->getHeightObj(), ship->getAngle())) {
-            Mix_PlayChannel(-1, mainExplore, 0);
-            var(); delete ship;
-            ship = NULL;
-            return;
-        }
-        listShipType7.push_back(ship);
-    }
-
-    siz = listBulletFromOtherShip.size();
+    int siz = listBulletFromOtherShip.size();
     for (int i = 0; i < siz; i++) {
         auto bullet = listBulletFromOtherShip.front();
         listBulletFromOtherShip.pop_front();
